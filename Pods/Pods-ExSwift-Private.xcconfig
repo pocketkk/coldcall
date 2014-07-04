@@ -1,0 +1,5 @@
+#include "Pods-ExSwift.xcconfig"
+GCC_PREPROCESSOR_DEFINITIONS = COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/BuildHeaders" "${PODS_ROOT}/BuildHeaders/ExSwift" "${PODS_ROOT}/Headers" "${PODS_ROOT}/Headers/ExSwift" "${PODS_ROOT}/Headers/MagicalRecord"
+OTHER_LDFLAGS = -ObjC ${PODS_EXSWIFT_OTHER_LDFLAGS}
+PODS_ROOT = ${SRCROOT}

@@ -16,6 +16,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
+        MagicalRecord.setupCoreDataStackWithAutoMigratingSqliteStoreNamed("coldcall.sqlite")
+        
+        
+        
+        var test = User.createEntity() as User
+        
+        test.firstName = "Jason"
+        test.lastName = "Crump"
+        
+        test.saveToPersistentStoreAndWait()
+
         return true
     }
 
@@ -40,6 +51,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    // #pragma mark - Core Data Helper
+    
+    var cdh: CoreDataHelper {
+    if !_cdh {
+        _cdh = CoreDataHelper()
+        }
+        return _cdh!
+    }
+    var _cdh: CoreDataHelper? = nil
 
 
 }

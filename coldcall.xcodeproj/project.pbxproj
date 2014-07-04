@@ -7,12 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		770A566D19660F8D008491C7 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A566C19660F8D008491C7 /* Group.swift */; };
+		770A5670196610ED008491C7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A566F196610ED008491C7 /* User.swift */; };
+		770A567219661178008491C7 /* ColdCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A567119661178008491C7 /* ColdCall.swift */; };
+		770A5674196611AB008491C7 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A5673196611AB008491C7 /* Business.swift */; };
+		770A567619661217008491C7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A567519661217008491C7 /* Contact.swift */; };
+		770A56781966125E008491C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A56771966125E008491C7 /* Note.swift */; };
 		7728D4D01966005200509ABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4CF1966005200509ABB /* AppDelegate.swift */; };
 		7728D4D21966005200509ABB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D11966005200509ABB /* FirstViewController.swift */; };
 		7728D4D41966005200509ABB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D31966005200509ABB /* SecondViewController.swift */; };
 		7728D4D71966005200509ABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7728D4D51966005200509ABB /* Main.storyboard */; };
 		7728D4D91966005200509ABB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7728D4D81966005200509ABB /* Images.xcassets */; };
 		7728D4E51966005200509ABB /* coldcallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4E41966005200509ABB /* coldcallTests.swift */; };
+		7728D4EF1966045000509ABB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7728D4EE1966045000509ABB /* CoreData.framework */; };
+		7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7728D4F01966045900509ABB /* CoreLocation.framework */; };
+		7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F21966056600509ABB /* coldcall.xcdatamodeld */; };
+		7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F819660DFD00509ABB /* CoreDataHelper.swift */; };
+		FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2C7C2F9A514E18A27F5CEF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +37,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		0F2C7C2F9A514E18A27F5CEF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		770A566C19660F8D008491C7 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		770A566F196610ED008491C7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		770A567119661178008491C7 /* ColdCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdCall.swift; sourceTree = "<group>"; };
+		770A5673196611AB008491C7 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		770A567519661217008491C7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		770A56771966125E008491C7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		7728D4CA1966005100509ABB /* coldcall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coldcall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7728D4CE1966005200509ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7728D4CF1966005200509ABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -36,6 +55,11 @@
 		7728D4DE1966005200509ABB /* coldcallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coldcallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7728D4E31966005200509ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7728D4E41966005200509ABB /* coldcallTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coldcallTests.swift; sourceTree = "<group>"; };
+		7728D4EE1966045000509ABB /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		7728D4F01966045900509ABB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		7728D4F31966056600509ABB /* coldcall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coldcall.xcdatamodel; sourceTree = "<group>"; };
+		7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coldcall-Bridging-Header.h"; sourceTree = "<group>"; };
+		7728D4F819660DFD00509ABB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +67,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */,
+				7728D4EF1966045000509ABB /* CoreData.framework in Frameworks */,
+				FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +83,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		770A566E196610C5008491C7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				770A566C19660F8D008491C7 /* Group.swift */,
+				770A566F196610ED008491C7 /* User.swift */,
+				770A567119661178008491C7 /* ColdCall.swift */,
+				770A5673196611AB008491C7 /* Business.swift */,
+				770A567519661217008491C7 /* Contact.swift */,
+				770A56771966125E008491C7 /* Note.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		7728D4C11966005100509ABB = {
 			isa = PBXGroup;
 			children = (
 				7728D4CC1966005100509ABB /* coldcall */,
 				7728D4E11966005200509ABB /* coldcallTests */,
 				7728D4CB1966005100509ABB /* Products */,
+				03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */,
+				8D439792137349D382252EDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -77,12 +119,16 @@
 		7728D4CC1966005100509ABB /* coldcall */ = {
 			isa = PBXGroup;
 			children = (
+				770A566E196610C5008491C7 /* Models */,
+				7728D4F21966056600509ABB /* coldcall.xcdatamodeld */,
 				7728D4CF1966005200509ABB /* AppDelegate.swift */,
 				7728D4D11966005200509ABB /* FirstViewController.swift */,
 				7728D4D31966005200509ABB /* SecondViewController.swift */,
 				7728D4D51966005200509ABB /* Main.storyboard */,
 				7728D4D81966005200509ABB /* Images.xcassets */,
 				7728D4CD1966005100509ABB /* Supporting Files */,
+				7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */,
+				7728D4F819660DFD00509ABB /* CoreDataHelper.swift */,
 			);
 			path = coldcall;
 			sourceTree = "<group>";
@@ -112,6 +158,16 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		8D439792137349D382252EDF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7728D4F01966045900509ABB /* CoreLocation.framework */,
+				7728D4EE1966045000509ABB /* CoreData.framework */,
+				0F2C7C2F9A514E18A27F5CEF /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -119,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7728D4E81966005200509ABB /* Build configuration list for PBXNativeTarget "coldcall" */;
 			buildPhases = (
+				B9E148E12A314F2187AD7672 /* Check Pods Manifest.lock */,
 				7728D4C61966005100509ABB /* Sources */,
 				7728D4C71966005100509ABB /* Frameworks */,
 				7728D4C81966005100509ABB /* Resources */,
+				32C27CF783924F4EA165E5A6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -206,14 +264,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		32C27CF783924F4EA165E5A6 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B9E148E12A314F2187AD7672 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		7728D4C61966005100509ABB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */,
 				7728D4D41966005200509ABB /* SecondViewController.swift in Sources */,
+				770A567619661217008491C7 /* Contact.swift in Sources */,
 				7728D4D01966005200509ABB /* AppDelegate.swift in Sources */,
+				770A566D19660F8D008491C7 /* Group.swift in Sources */,
 				7728D4D21966005200509ABB /* FirstViewController.swift in Sources */,
+				7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */,
+				770A56781966125E008491C7 /* Note.swift in Sources */,
+				770A5674196611AB008491C7 /* Business.swift in Sources */,
+				770A5670196610ED008491C7 /* User.swift in Sources */,
+				770A567219661178008491C7 /* ColdCall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,23 +425,30 @@
 		};
 		7728D4E91966005200509ABB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = coldcall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "coldcall/coldcall-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		7728D4EA1966005200509ABB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = coldcall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "coldcall/coldcall-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -401,6 +507,7 @@
 				7728D4EA1966005200509ABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		7728D4EB1966005200509ABB /* Build configuration list for PBXNativeTarget "coldcallTests" */ = {
 			isa = XCConfigurationList;
@@ -409,8 +516,22 @@
 				7728D4ED1966005200509ABB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7728D4F21966056600509ABB /* coldcall.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7728D4F31966056600509ABB /* coldcall.xcdatamodel */,
+			);
+			currentVersion = 7728D4F31966056600509ABB /* coldcall.xcdatamodel */;
+			path = coldcall.xcdatamodeld;
+			sourceTree = SOURCE_ROOT;
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7728D4C21966005100509ABB /* Project object */;
 }
