@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="14A261i" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Businesses" representedClassName="Business" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="coldcalls" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="business" inverseEntity="ColdCalls" syncable="YES"/>
+        <relationship name="coldcalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="business" inverseEntity="ColdCalls" syncable="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contacts" inverseName="business" inverseEntity="Contacts" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="business" inverseEntity="Notes" syncable="YES"/>
     </entity>
     <entity name="ColdCalls" representedClassName="ColdCall" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="business" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Businesses" inverseName="coldcalls" inverseEntity="Businesses" syncable="YES"/>
-        <relationship name="notes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notes" inverseName="coldcall" inverseEntity="Notes" syncable="YES"/>
+        <relationship name="note" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Notes" inverseName="coldcall" inverseEntity="Notes" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Users" inverseName="coldcalls" inverseEntity="Users" syncable="YES"/>
     </entity>
     <entity name="Contacts" representedClassName="Contact" syncable="YES">
@@ -25,28 +25,28 @@
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="contact" inverseEntity="Notes" syncable="YES"/>
     </entity>
     <entity name="Groups" representedClassName="Group" syncable="YES">
-        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="users" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Users" inverseName="group" inverseEntity="Users" syncable="YES"/>
     </entity>
     <entity name="Notes" representedClassName="Note" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="business" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Businesses" inverseName="notes" inverseEntity="Businesses" syncable="YES"/>
-        <relationship name="coldcall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="notes" inverseEntity="ColdCalls" syncable="YES"/>
+        <relationship name="coldcall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="note" inverseEntity="ColdCalls" syncable="YES"/>
         <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="notes" inverseEntity="Contacts" syncable="YES"/>
     </entity>
     <entity name="Users" representedClassName="User" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="coldcalls" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="user" inverseEntity="ColdCalls" syncable="YES"/>
+        <relationship name="coldcalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="user" inverseEntity="ColdCalls" syncable="YES"/>
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Groups" inverseName="users" inverseEntity="Groups" syncable="YES"/>
     </entity>
     <elements>
         <element name="Businesses" positionX="0" positionY="45" width="128" height="163"/>
         <element name="ColdCalls" positionX="-18" positionY="27" width="128" height="103"/>
         <element name="Contacts" positionX="36" positionY="81" width="128" height="135"/>
-        <element name="Groups" positionX="-54" positionY="-9" width="128" height="90"/>
+        <element name="Groups" positionX="-54" positionY="-9" width="128" height="28"/>
         <element name="Notes" positionX="18" positionY="63" width="128" height="103"/>
-        <element name="Users" positionX="-36" positionY="9" width="128" height="105"/>
+        <element name="Users" positionX="-36" positionY="9" width="128" height="103"/>
     </elements>
 </model>

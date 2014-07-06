@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,17 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
-        MagicalRecord.setupCoreDataStackWithAutoMigratingSqliteStoreNamed("coldcall.sqlite")
         
+ 
         
-        
-        var test = User.createEntity() as User
-        
-        test.firstName = "Jason"
-        test.lastName = "Crump"
-        
-        test.saveToPersistentStoreAndWait()
-
         return true
     }
 
