@@ -1,4 +1,4 @@
 platform :ios, '8.0'
 
-pod 'MagicalRecord'
+#pod 'MagicalRecord'
 #pod 'ExSwift'

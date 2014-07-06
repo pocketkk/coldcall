@@ -13,10 +13,23 @@
 		770A5674196611AB008491C7 /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A5673196611AB008491C7 /* Business.swift */; };
 		770A567619661217008491C7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A567519661217008491C7 /* Contact.swift */; };
 		770A56781966125E008491C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A56771966125E008491C7 /* Note.swift */; };
+		770FF07319699F4F0036D2FB /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF07219699F4F0036D2FB /* list26.png */; };
+		770FF07E1969A8160036D2FB /* three47.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF07D1969A8160036D2FB /* three47.png */; };
+		770FF0801969F6EE0036D2FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */; };
+		770FF08B1969F9690036D2FB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0841969F9690036D2FB /* MainStoryboard.storyboard */; };
+		770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0861969F9690036D2FB /* MenuViewController.m */; };
+		770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0901969F9920036D2FB /* SWRevealViewController.m */; };
+		770FF0971969F9BB0036D2FB /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0921969F9BB0036D2FB /* reveal-icon@2x.png */; };
+		770FF0981969F9BB0036D2FB /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0931969F9BB0036D2FB /* reveal-icon.png */; };
+		770FF0991969F9BB0036D2FB /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0941969F9BB0036D2FB /* Default@2x.png */; };
+		770FF09A1969F9BB0036D2FB /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0951969F9BB0036D2FB /* Default.png */; };
+		770FF09B1969F9BB0036D2FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0961969F9BB0036D2FB /* Default-568h@2x.png */; };
+		770FF09D1969FC110036D2FB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF09C1969FC110036D2FB /* MapKit.framework */; };
+		770FF09F1969FC200036D2FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF09E1969FC200036D2FB /* Foundation.framework */; };
+		770FF0A1196A0C0B0036D2FB /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0A0196A0C0B0036D2FB /* NewViewController.swift */; };
 		7728D4D01966005200509ABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4CF1966005200509ABB /* AppDelegate.swift */; };
-		7728D4D21966005200509ABB /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D11966005200509ABB /* FirstViewController.swift */; };
-		7728D4D41966005200509ABB /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D31966005200509ABB /* SecondViewController.swift */; };
-		7728D4D71966005200509ABB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7728D4D51966005200509ABB /* Main.storyboard */; };
+		7728D4D21966005200509ABB /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D11966005200509ABB /* ColorViewController.swift */; };
+		7728D4D41966005200509ABB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D31966005200509ABB /* MapViewController.swift */; };
 		7728D4D91966005200509ABB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7728D4D81966005200509ABB /* Images.xcassets */; };
 		7728D4E51966005200509ABB /* coldcallTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4E41966005200509ABB /* coldcallTests.swift */; };
 		7728D4EF1966045000509ABB /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7728D4EE1966045000509ABB /* CoreData.framework */; };
@@ -24,7 +37,6 @@
 		7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F21966056600509ABB /* coldcall.xcdatamodeld */; };
 		7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F819660DFD00509ABB /* CoreDataHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
-		775CC86919690A7300F6A0FA /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 775CC86819690A7300F6A0FA /* SWRevealViewController.m */; };
 		FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2C7C2F9A514E18A27F5CEF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -47,12 +59,27 @@
 		770A5673196611AB008491C7 /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
 		770A567519661217008491C7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		770A56771966125E008491C7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
+		770FF07219699F4F0036D2FB /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list26.png; sourceTree = "<group>"; };
+		770FF07D1969A8160036D2FB /* three47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = three47.png; sourceTree = "<group>"; };
+		770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		770FF0841969F9690036D2FB /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
+		770FF0851969F9690036D2FB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
+		770FF0861969F9690036D2FB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
+		770FF08F1969F9920036D2FB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		770FF0901969F9920036D2FB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		770FF0921969F9BB0036D2FB /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
+		770FF0931969F9BB0036D2FB /* reveal-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon.png"; sourceTree = "<group>"; };
+		770FF0941969F9BB0036D2FB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		770FF0951969F9BB0036D2FB /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		770FF0961969F9BB0036D2FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		770FF09C1969FC110036D2FB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		770FF09E1969FC200036D2FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		770FF0A0196A0C0B0036D2FB /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		7728D4CA1966005100509ABB /* coldcall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coldcall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7728D4CE1966005200509ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7728D4CF1966005200509ABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7728D4D11966005200509ABB /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		7728D4D31966005200509ABB /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
-		7728D4D61966005200509ABB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7728D4D11966005200509ABB /* ColorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewController.swift; sourceTree = "<group>"; };
+		7728D4D31966005200509ABB /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		7728D4D81966005200509ABB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		7728D4DE1966005200509ABB /* coldcallTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coldcallTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7728D4E31966005200509ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,8 +90,6 @@
 		7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coldcall-Bridging-Header.h"; sourceTree = "<group>"; };
 		7728D4F819660DFD00509ABB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
-		775CC86719690A7300F6A0FA /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
-		775CC86819690A7300F6A0FA /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +97,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				770FF09F1969FC200036D2FB /* Foundation.framework in Frameworks */,
+				770FF09D1969FC110036D2FB /* MapKit.framework in Frameworks */,
+				770FF0801969F6EE0036D2FB /* CoreGraphics.framework in Frameworks */,
 				7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */,
 				7728D4EF1966045000509ABB /* CoreData.framework in Frameworks */,
 				FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */,
@@ -129,6 +157,11 @@
 				775CC865196909DA00F6A0FA /* Helpers */,
 				770A566E196610C5008491C7 /* Models */,
 				7728D4CF1966005200509ABB /* AppDelegate.swift */,
+				770FF0841969F9690036D2FB /* MainStoryboard.storyboard */,
+				770FF0851969F9690036D2FB /* MenuViewController.h */,
+				770FF0861969F9690036D2FB /* MenuViewController.m */,
+				770FF08F1969F9920036D2FB /* SWRevealViewController.h */,
+				770FF0901969F9920036D2FB /* SWRevealViewController.m */,
 				7728D4CD1966005100509ABB /* Supporting Files */,
 				7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */,
 				7728D4D81966005200509ABB /* Images.xcassets */,
@@ -139,6 +172,13 @@
 		7728D4CD1966005100509ABB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				770FF0921969F9BB0036D2FB /* reveal-icon@2x.png */,
+				770FF0931969F9BB0036D2FB /* reveal-icon.png */,
+				770FF0941969F9BB0036D2FB /* Default@2x.png */,
+				770FF0951969F9BB0036D2FB /* Default.png */,
+				770FF0961969F9BB0036D2FB /* Default-568h@2x.png */,
+				770FF07D1969A8160036D2FB /* three47.png */,
+				770FF07219699F4F0036D2FB /* list26.png */,
 				7728D4CE1966005200509ABB /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -173,26 +213,19 @@
 		775CC86619690A0700F6A0FA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				775CC86A19690A9100F6A0FA /* SWRevealView */,
-				7728D4D11966005200509ABB /* FirstViewController.swift */,
-				7728D4D31966005200509ABB /* SecondViewController.swift */,
-				7728D4D51966005200509ABB /* Main.storyboard */,
+				7728D4D11966005200509ABB /* ColorViewController.swift */,
+				7728D4D31966005200509ABB /* MapViewController.swift */,
+				770FF0A0196A0C0B0036D2FB /* NewViewController.swift */,
 			);
 			name = ViewControllers;
-			sourceTree = "<group>";
-		};
-		775CC86A19690A9100F6A0FA /* SWRevealView */ = {
-			isa = PBXGroup;
-			children = (
-				775CC86719690A7300F6A0FA /* SWRevealViewController.h */,
-				775CC86819690A7300F6A0FA /* SWRevealViewController.m */,
-			);
-			name = SWRevealView;
 			sourceTree = "<group>";
 		};
 		8D439792137349D382252EDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				770FF09E1969FC200036D2FB /* Foundation.framework */,
+				770FF09C1969FC110036D2FB /* MapKit.framework */,
+				770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */,
 				7728D4F01966045900509ABB /* CoreLocation.framework */,
 				7728D4EE1966045000509ABB /* CoreData.framework */,
 				0F2C7C2F9A514E18A27F5CEF /* libPods.a */,
@@ -282,8 +315,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7728D4D71966005200509ABB /* Main.storyboard in Resources */,
+				770FF07E1969A8160036D2FB /* three47.png in Resources */,
+				770FF0971969F9BB0036D2FB /* reveal-icon@2x.png in Resources */,
+				770FF09B1969F9BB0036D2FB /* Default-568h@2x.png in Resources */,
 				7728D4D91966005200509ABB /* Images.xcassets in Resources */,
+				770FF09A1969F9BB0036D2FB /* Default.png in Resources */,
+				770FF08B1969F9690036D2FB /* MainStoryboard.storyboard in Resources */,
+				770FF07319699F4F0036D2FB /* list26.png in Resources */,
+				770FF0991969F9BB0036D2FB /* Default@2x.png in Resources */,
+				770FF0981969F9BB0036D2FB /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,17 +374,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				775CC86919690A7300F6A0FA /* SWRevealViewController.m in Sources */,
 				7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */,
-				7728D4D41966005200509ABB /* SecondViewController.swift in Sources */,
+				7728D4D41966005200509ABB /* MapViewController.swift in Sources */,
 				770A567619661217008491C7 /* Contact.swift in Sources */,
 				7728D4D01966005200509ABB /* AppDelegate.swift in Sources */,
+				770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */,
 				770A566D19660F8D008491C7 /* Group.swift in Sources */,
-				7728D4D21966005200509ABB /* FirstViewController.swift in Sources */,
+				7728D4D21966005200509ABB /* ColorViewController.swift in Sources */,
 				7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */,
 				770A56781966125E008491C7 /* Note.swift in Sources */,
 				775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */,
 				770A5674196611AB008491C7 /* Business.swift in Sources */,
+				770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */,
+				770FF0A1196A0C0B0036D2FB /* NewViewController.swift in Sources */,
 				770A5670196610ED008491C7 /* User.swift in Sources */,
 				770A567219661178008491C7 /* ColdCall.swift in Sources */,
 			);
@@ -367,17 +409,6 @@
 			targetProxy = 7728D4DF1966005200509ABB /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		7728D4D51966005200509ABB /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7728D4D61966005200509ABB /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7728D4E61966005200509ABB /* Debug */ = {
