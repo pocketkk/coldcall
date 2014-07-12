@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="14A261i" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Businesses" representedClassName="Business" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -47,6 +47,6 @@
         <element name="Contacts" positionX="36" positionY="81" width="128" height="135"/>
         <element name="Groups" positionX="-54" positionY="-9" width="128" height="28"/>
         <element name="Notes" positionX="18" positionY="63" width="128" height="103"/>
-        <element name="Users" positionX="-36" positionY="9" width="128" height="103"/>
+        <element name="Users" positionX="-36" positionY="9" width="128" height="105"/>
     </elements>
 </model>

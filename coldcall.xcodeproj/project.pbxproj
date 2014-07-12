@@ -37,6 +37,8 @@
 		7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F21966056600509ABB /* coldcall.xcdatamodeld */; };
 		7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F819660DFD00509ABB /* CoreDataHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
+		77CD6A08196DFCCE00A50D33 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */; };
+		77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */; };
 		FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2C7C2F9A514E18A27F5CEF /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,9 @@
 		7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coldcall-Bridging-Header.h"; sourceTree = "<group>"; };
 		7728D4F819660DFD00509ABB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		77CD6A0B196E049700A50D33 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +108,7 @@
 				7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */,
 				7728D4EF1966045000509ABB /* CoreData.framework in Frameworks */,
 				FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */,
+				77CD6A08196DFCCE00A50D33 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +171,7 @@
 				7728D4CD1966005100509ABB /* Supporting Files */,
 				7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */,
 				7728D4D81966005200509ABB /* Images.xcassets */,
+				77CD6A0B196E049700A50D33 /* PrefixHeader.pch */,
 			);
 			path = coldcall;
 			sourceTree = "<group>";
@@ -216,6 +223,7 @@
 				7728D4D11966005200509ABB /* ColorViewController.swift */,
 				7728D4D31966005200509ABB /* MapViewController.swift */,
 				770FF0A0196A0C0B0036D2FB /* NewViewController.swift */,
+				77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 		8D439792137349D382252EDF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */,
 				770FF09E1969FC200036D2FB /* Foundation.framework */,
 				770FF09C1969FC110036D2FB /* MapKit.framework */,
 				770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */,
@@ -386,6 +395,7 @@
 				775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */,
 				770A5674196611AB008491C7 /* Business.swift in Sources */,
 				770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */,
+				77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */,
 				770FF0A1196A0C0B0036D2FB /* NewViewController.swift in Sources */,
 				770A5670196610ED008491C7 /* User.swift in Sources */,
 				770A567219661178008491C7 /* ColdCall.swift in Sources */,
@@ -495,6 +505,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				GCC_PREFIX_HEADER = coldcall/PrefixHeader.pch;
 				INFOPLIST_FILE = coldcall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -510,6 +522,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(PROJECT_DIR)";
+				GCC_PREFIX_HEADER = coldcall/PrefixHeader.pch;
 				INFOPLIST_FILE = coldcall/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";

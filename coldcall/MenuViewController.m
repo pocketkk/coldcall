@@ -86,18 +86,18 @@
     switch ( indexPath.row )
     {
         case 0:
-            CellIdentifier = @"map";
+            CellIdentifier = @"coldcalls";
             break;
             
         case 1:
-            CellIdentifier = @"blue";
+            CellIdentifier = @"contacts";
             break;
 
         case 2:
-            CellIdentifier = @"red";
+            CellIdentifier = @"competition";
             break;
         case 3:
-            CellIdentifier = @"newOne";
+            CellIdentifier = @"settings";
     }
 
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];

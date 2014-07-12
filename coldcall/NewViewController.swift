@@ -24,6 +24,9 @@ class NewViewController: UIViewController {
         self.revealButtonItem.action = "revealToggle:"
         self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         // Do any additional setup after loading the view.
+        displayFacebookLogin()
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,6 +34,11 @@ class NewViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    func displayFacebookLogin(){
+        let storyboard : UIStoryboard = UIStoryboard(name: "MainStoryboard", bundle: nil);
+        let vc : UIViewController = storyboard.instantiateViewControllerWithIdentifier("login_view") as UIViewController;
+        self.presentViewController(vc, animated: true, completion: nil);
+    }
 
     /*
     // #pragma mark - Navigation
