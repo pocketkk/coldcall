@@ -52,12 +52,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // #pragma mark - Core Data Helper
     
     var cdh: CoreDataHelper {
-    if !_cdh {
-        _cdh = CoreDataHelper()
-        }
-        return _cdh!
+        if !_cdh {
+            _cdh = CoreDataHelper()
+            }
+            return _cdh!
     }
-    var _cdh: CoreDataHelper? = nil
+    var _cdh: CoreDataHelper?
 
 
 }

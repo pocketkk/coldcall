@@ -14,7 +14,6 @@
 		770A567619661217008491C7 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A567519661217008491C7 /* Contact.swift */; };
 		770A56781966125E008491C7 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770A56771966125E008491C7 /* Note.swift */; };
 		770FF07319699F4F0036D2FB /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF07219699F4F0036D2FB /* list26.png */; };
-		770FF07E1969A8160036D2FB /* three47.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF07D1969A8160036D2FB /* three47.png */; };
 		770FF0801969F6EE0036D2FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */; };
 		770FF08B1969F9690036D2FB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0841969F9690036D2FB /* MainStoryboard.storyboard */; };
 		770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0861969F9690036D2FB /* MenuViewController.m */; };
@@ -37,6 +36,13 @@
 		7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F21966056600509ABB /* coldcall.xcdatamodeld */; };
 		7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F819660DFD00509ABB /* CoreDataHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
+		77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5156197F16420041ECCD /* MenuViewController.swift */; };
+		77BE517119804CE30041ECCD /* handshake1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516C19804CE30041ECCD /* handshake1.png */; };
+		77BE517219804CE30041ECCD /* machine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516D19804CE30041ECCD /* machine2.png */; };
+		77BE517319804CE30041ECCD /* map5.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516E19804CE30041ECCD /* map5.png */; };
+		77BE517419804CE30041ECCD /* multiple25.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516F19804CE30041ECCD /* multiple25.png */; };
+		77BE517519804CE30041ECCD /* placeholder8.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE517019804CE30041ECCD /* placeholder8.png */; };
+		77BE5177198160C20041ECCD /* BaseUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5176198160C20041ECCD /* BaseUIHelper.swift */; };
 		77CD6A08196DFCCE00A50D33 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */; };
 		77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */; };
 		FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2C7C2F9A514E18A27F5CEF /* libPods.a */; };
@@ -62,7 +68,6 @@
 		770A567519661217008491C7 /* Contact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
 		770A56771966125E008491C7 /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		770FF07219699F4F0036D2FB /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list26.png; sourceTree = "<group>"; };
-		770FF07D1969A8160036D2FB /* three47.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = three47.png; sourceTree = "<group>"; };
 		770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		770FF0841969F9690036D2FB /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
 		770FF0851969F9690036D2FB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
@@ -92,6 +97,13 @@
 		7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coldcall-Bridging-Header.h"; sourceTree = "<group>"; };
 		7728D4F819660DFD00509ABB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		77BE5156197F16420041ECCD /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
+		77BE516C19804CE30041ECCD /* handshake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handshake1.png; sourceTree = "<group>"; };
+		77BE516D19804CE30041ECCD /* machine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = machine2.png; sourceTree = "<group>"; };
+		77BE516E19804CE30041ECCD /* map5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map5.png; sourceTree = "<group>"; };
+		77BE516F19804CE30041ECCD /* multiple25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple25.png; sourceTree = "<group>"; };
+		77BE517019804CE30041ECCD /* placeholder8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder8.png; sourceTree = "<group>"; };
+		77BE5176198160C20041ECCD /* BaseUIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIHelper.swift; sourceTree = "<group>"; };
 		77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		77CD6A0B196E049700A50D33 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -179,12 +191,16 @@
 		7728D4CD1966005100509ABB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				77BE516C19804CE30041ECCD /* handshake1.png */,
+				77BE516D19804CE30041ECCD /* machine2.png */,
+				77BE516E19804CE30041ECCD /* map5.png */,
+				77BE516F19804CE30041ECCD /* multiple25.png */,
+				77BE517019804CE30041ECCD /* placeholder8.png */,
 				770FF0921969F9BB0036D2FB /* reveal-icon@2x.png */,
 				770FF0931969F9BB0036D2FB /* reveal-icon.png */,
 				770FF0941969F9BB0036D2FB /* Default@2x.png */,
 				770FF0951969F9BB0036D2FB /* Default.png */,
 				770FF0961969F9BB0036D2FB /* Default-568h@2x.png */,
-				770FF07D1969A8160036D2FB /* three47.png */,
 				770FF07219699F4F0036D2FB /* list26.png */,
 				7728D4CE1966005200509ABB /* Info.plist */,
 			);
@@ -211,6 +227,7 @@
 		775CC865196909DA00F6A0FA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				77BE5176198160C20041ECCD /* BaseUIHelper.swift */,
 				7728D4F819660DFD00509ABB /* CoreDataHelper.swift */,
 				775CC8631968E76B00F6A0FA /* SeedData.swift */,
 			);
@@ -220,6 +237,7 @@
 		775CC86619690A0700F6A0FA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				77BE5156197F16420041ECCD /* MenuViewController.swift */,
 				7728D4D11966005200509ABB /* ColorViewController.swift */,
 				7728D4D31966005200509ABB /* MapViewController.swift */,
 				770FF0A0196A0C0B0036D2FB /* NewViewController.swift */,
@@ -324,14 +342,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				770FF07E1969A8160036D2FB /* three47.png in Resources */,
+				77BE517419804CE30041ECCD /* multiple25.png in Resources */,
 				770FF0971969F9BB0036D2FB /* reveal-icon@2x.png in Resources */,
 				770FF09B1969F9BB0036D2FB /* Default-568h@2x.png in Resources */,
 				7728D4D91966005200509ABB /* Images.xcassets in Resources */,
 				770FF09A1969F9BB0036D2FB /* Default.png in Resources */,
+				77BE517319804CE30041ECCD /* map5.png in Resources */,
+				77BE517119804CE30041ECCD /* handshake1.png in Resources */,
 				770FF08B1969F9690036D2FB /* MainStoryboard.storyboard in Resources */,
 				770FF07319699F4F0036D2FB /* list26.png in Resources */,
 				770FF0991969F9BB0036D2FB /* Default@2x.png in Resources */,
+				77BE517519804CE30041ECCD /* placeholder8.png in Resources */,
+				77BE517219804CE30041ECCD /* machine2.png in Resources */,
 				770FF0981969F9BB0036D2FB /* reveal-icon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +405,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				77BE5177198160C20041ECCD /* BaseUIHelper.swift in Sources */,
 				7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */,
 				7728D4D41966005200509ABB /* MapViewController.swift in Sources */,
 				770A567619661217008491C7 /* Contact.swift in Sources */,
@@ -396,6 +419,7 @@
 				770A5674196611AB008491C7 /* Business.swift in Sources */,
 				770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */,
 				77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */,
+				77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */,
 				770FF0A1196A0C0B0036D2FB /* NewViewController.swift in Sources */,
 				770A5670196610ED008491C7 /* User.swift in Sources */,
 				770A567219661178008491C7 /* ColdCall.swift in Sources */,

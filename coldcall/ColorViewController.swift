@@ -9,12 +9,10 @@
 import UIKit
 import CoreData
 
-@objc(ColorViewController)
-
 class ColorViewController: UIViewController {
     
     @IBOutlet var label: UILabel!
-    @IBOutlet var revealButtonItem: UIBarButtonItem
+    @IBOutlet var revealButtonItem: UIBarButtonItem!
     var color: UIColor = UIColor.brownColor()
     var text: String = "Text"
 

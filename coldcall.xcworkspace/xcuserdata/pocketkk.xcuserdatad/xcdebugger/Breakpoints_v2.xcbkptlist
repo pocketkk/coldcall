@@ -2,4 +2,52 @@
 <Bucket
    type = "0"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "coldcall/CoreDataHelper.swift"
+            timestampString = "427817873.916802"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "CoreDataHelper"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "coldcall.CoreDataHelper._managedObjectContext.setter : Swift.Optional&lt;ObjectiveC.NSManagedObjectContext&gt;"
+                  moduleName = "coldcall"
+                  urlString = "file:///Volumes/MacBook%20HD/Users/pocketkk/Projects/coldcall/coldcall/CoreDataHelper.swift"
+                  timestampString = "427926461.09098"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "coldcall.CoreDataHelper.init (coldcall.CoreDataHelper.Type)() -&gt; coldcall.CoreDataHelper"
+                  moduleName = "coldcall"
+                  urlString = "file:///Volumes/MacBook%20HD/Users/pocketkk/Projects/coldcall/coldcall/CoreDataHelper.swift"
+                  timestampString = "427926461.091246"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "109">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

@@ -9,10 +9,10 @@
 #import "MenuViewController.h"
 #import "coldcall-Swift.h"
 
-@implementation SWUITableViewCell
+@implementation SWUITableViewCell3
 @end
 
-@implementation MenuViewController
+@implementation MenuViewController3
 
 - (void) prepareForSegueB: (UIStoryboardSegue *) segue sender: (id) sender
 {
@@ -20,7 +20,7 @@
     if ( [segue.destinationViewController isKindOfClass: [ColorViewController class]] &&
         [sender isKindOfClass:[UITableViewCell class]] )
     {
-        UILabel* c = [(SWUITableViewCell *)sender label];
+        UILabel* c = [(SWUITableViewCell3 *)sender label];
         ColorViewController* cvc = segue.destinationViewController;
         
         cvc.color = c.textColor;
@@ -51,7 +51,7 @@
     // configure the destination view controller:
     if ( [sender isKindOfClass:[UITableViewCell class]] )
     {
-        UILabel* c = [(SWUITableViewCell *)sender label];
+        UILabel* c = [(SWUITableViewCell3 *)sender label];
         UINavigationController *navController = segue.destinationViewController;
         ColorViewController* cvc = [navController childViewControllers].firstObject;
         if ( [cvc isKindOfClass:[ColorViewController class]] )

@@ -11,9 +11,9 @@ import CoreData
 
 class SeedData {
 
-    class func seedAll(num: IntegerLiteralType) {
+    class func seedAll(num: Int) {
 
-        let number = num as Integer
+        let number = num as Int
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
 

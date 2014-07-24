@@ -9,17 +9,24 @@
 import Foundation
 import UIKit
 
+protocol LoginViewControllerDelegate {
+    func closeFacebookLogin()
+}
+
 class LoginViewController: UIViewController, FBLoginViewDelegate {
 
     var fbl: FBLoginView = FBLoginView()
+    var delegate : LoginViewControllerDelegate?
     
-    @IBOutlet var loginView : FBLoginView
-    @IBOutlet var profilePictureView : FBProfilePictureView
-    @IBOutlet var userNameTxt : UILabel
-    @IBOutlet var logStatusTxt : UILabel
+    @IBOutlet var loginView : FBLoginView!
+    @IBOutlet var profilePictureView : FBProfilePictureView!
+    @IBOutlet var userNameTxt : UILabel!
+    @IBOutlet var logStatusTxt : UILabel!
     
     @IBAction func logMeOut() {
-        
+        println("Close Window")
+        self.presentingViewController.dismissViewControllerAnimated(true, completion: nil)
+        //delegate?.closeFacebookLogin()
     }
 
     override func viewDidLoad() {
