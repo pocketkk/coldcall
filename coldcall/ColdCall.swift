@@ -3,7 +3,7 @@ import CoreData
 @objc(ColdCall)
 class ColdCall: NSManagedObject {
     
-    @NSManaged var date:   NSDate
+    @NSManaged var date: NSDate
     @NSManaged var note: Note
     @NSManaged var business: Business
     @NSManaged var contact: Contact

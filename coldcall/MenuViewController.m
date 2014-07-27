@@ -59,7 +59,7 @@
             cvc.color = c.textColor;
             cvc.text = c.text;
         }
-        if ( [cvc isKindOfClass:[NewViewController class]] )
+        if ( [cvc isKindOfClass:[NewCCTableViewController class]] )
         {
            // insert seque information for NewViewController Class
         }

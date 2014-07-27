@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6172.15" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="14A298i" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Businesses" representedClassName="Business" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
@@ -21,6 +21,7 @@
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="business" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Businesses" inverseName="contacts" inverseEntity="Businesses" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="contact" inverseEntity="Notes" syncable="YES"/>
     </entity>
@@ -31,6 +32,7 @@
     </entity>
     <entity name="Notes" representedClassName="Note" syncable="YES">
         <attribute name="content" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <relationship name="business" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Businesses" inverseName="notes" inverseEntity="Businesses" syncable="YES"/>
         <relationship name="coldcall" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="note" inverseEntity="ColdCalls" syncable="YES"/>
         <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contacts" inverseName="notes" inverseEntity="Contacts" syncable="YES"/>
@@ -44,9 +46,9 @@
     <elements>
         <element name="Businesses" positionX="0" positionY="45" width="128" height="163"/>
         <element name="ColdCalls" positionX="-18" positionY="27" width="128" height="103"/>
-        <element name="Contacts" positionX="36" positionY="81" width="128" height="135"/>
+        <element name="Contacts" positionX="36" positionY="81" width="128" height="150"/>
         <element name="Groups" positionX="-54" positionY="-9" width="128" height="28"/>
-        <element name="Notes" positionX="18" positionY="63" width="128" height="103"/>
+        <element name="Notes" positionX="18" positionY="63" width="128" height="120"/>
         <element name="Users" positionX="-36" positionY="9" width="128" height="105"/>
     </elements>
 </model>

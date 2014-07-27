@@ -25,7 +25,6 @@
 		770FF09B1969F9BB0036D2FB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0961969F9BB0036D2FB /* Default-568h@2x.png */; };
 		770FF09D1969FC110036D2FB /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF09C1969FC110036D2FB /* MapKit.framework */; };
 		770FF09F1969FC200036D2FB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF09E1969FC200036D2FB /* Foundation.framework */; };
-		770FF0A1196A0C0B0036D2FB /* NewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0A0196A0C0B0036D2FB /* NewViewController.swift */; };
 		7728D4D01966005200509ABB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4CF1966005200509ABB /* AppDelegate.swift */; };
 		7728D4D21966005200509ABB /* ColorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D11966005200509ABB /* ColorViewController.swift */; };
 		7728D4D41966005200509ABB /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4D31966005200509ABB /* MapViewController.swift */; };
@@ -35,6 +34,10 @@
 		7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7728D4F01966045900509ABB /* CoreLocation.framework */; };
 		7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F21966056600509ABB /* coldcall.xcdatamodeld */; };
 		7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F819660DFD00509ABB /* CoreDataHelper.swift */; };
+		775C2C47198322D400ADB786 /* NewCCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C46198322D400ADB786 /* NewCCTableViewController.swift */; };
+		775C2C4919840D3C00ADB786 /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4819840D3C00ADB786 /* TableViewCells.swift */; };
+		775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4A198429CF00ADB786 /* Array+Each.swift */; };
+		775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4C19855BF600ADB786 /* DateHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
 		77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5156197F16420041ECCD /* MenuViewController.swift */; };
 		77BE517119804CE30041ECCD /* handshake1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516C19804CE30041ECCD /* handshake1.png */; };
@@ -45,7 +48,6 @@
 		77BE5177198160C20041ECCD /* BaseUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5176198160C20041ECCD /* BaseUIHelper.swift */; };
 		77CD6A08196DFCCE00A50D33 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */; };
 		77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */; };
-		FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F2C7C2F9A514E18A27F5CEF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,8 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		0F2C7C2F9A514E18A27F5CEF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		770A566C19660F8D008491C7 /* Group.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
 		770A566F196610ED008491C7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		770A567119661178008491C7 /* ColdCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdCall.swift; sourceTree = "<group>"; };
@@ -81,7 +81,6 @@
 		770FF0961969F9BB0036D2FB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		770FF09C1969FC110036D2FB /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		770FF09E1969FC200036D2FB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		770FF0A0196A0C0B0036D2FB /* NewViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewViewController.swift; sourceTree = "<group>"; };
 		7728D4CA1966005100509ABB /* coldcall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = coldcall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7728D4CE1966005200509ABB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7728D4CF1966005200509ABB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +95,10 @@
 		7728D4F31966056600509ABB /* coldcall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coldcall.xcdatamodel; sourceTree = "<group>"; };
 		7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coldcall-Bridging-Header.h"; sourceTree = "<group>"; };
 		7728D4F819660DFD00509ABB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
+		775C2C46198322D400ADB786 /* NewCCTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCCTableViewController.swift; sourceTree = "<group>"; };
+		775C2C4819840D3C00ADB786 /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
+		775C2C4A198429CF00ADB786 /* Array+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Each.swift"; sourceTree = "<group>"; };
+		775C2C4C19855BF600ADB786 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
 		77BE5156197F16420041ECCD /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 		77BE516C19804CE30041ECCD /* handshake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handshake1.png; sourceTree = "<group>"; };
@@ -119,7 +122,6 @@
 				770FF0801969F6EE0036D2FB /* CoreGraphics.framework in Frameworks */,
 				7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */,
 				7728D4EF1966045000509ABB /* CoreData.framework in Frameworks */,
-				FAC8FE6F24354EFBB1665BC6 /* libPods.a in Frameworks */,
 				77CD6A08196DFCCE00A50D33 /* FacebookSDK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -154,7 +156,6 @@
 				7728D4CC1966005100509ABB /* coldcall */,
 				7728D4E11966005200509ABB /* coldcallTests */,
 				7728D4CB1966005100509ABB /* Products */,
-				03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */,
 				8D439792137349D382252EDF /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -184,6 +185,7 @@
 				7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */,
 				7728D4D81966005200509ABB /* Images.xcassets */,
 				77CD6A0B196E049700A50D33 /* PrefixHeader.pch */,
+				775C2C4A198429CF00ADB786 /* Array+Each.swift */,
 			);
 			path = coldcall;
 			sourceTree = "<group>";
@@ -230,6 +232,7 @@
 				77BE5176198160C20041ECCD /* BaseUIHelper.swift */,
 				7728D4F819660DFD00509ABB /* CoreDataHelper.swift */,
 				775CC8631968E76B00F6A0FA /* SeedData.swift */,
+				775C2C4C19855BF600ADB786 /* DateHelper.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -240,8 +243,9 @@
 				77BE5156197F16420041ECCD /* MenuViewController.swift */,
 				7728D4D11966005200509ABB /* ColorViewController.swift */,
 				7728D4D31966005200509ABB /* MapViewController.swift */,
-				770FF0A0196A0C0B0036D2FB /* NewViewController.swift */,
 				77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */,
+				775C2C46198322D400ADB786 /* NewCCTableViewController.swift */,
+				775C2C4819840D3C00ADB786 /* TableViewCells.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -255,7 +259,6 @@
 				770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */,
 				7728D4F01966045900509ABB /* CoreLocation.framework */,
 				7728D4EE1966045000509ABB /* CoreData.framework */,
-				0F2C7C2F9A514E18A27F5CEF /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -267,11 +270,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7728D4E81966005200509ABB /* Build configuration list for PBXNativeTarget "coldcall" */;
 			buildPhases = (
-				B9E148E12A314F2187AD7672 /* Check Pods Manifest.lock */,
 				7728D4C61966005100509ABB /* Sources */,
 				7728D4C71966005100509ABB /* Frameworks */,
 				7728D4C81966005100509ABB /* Resources */,
-				32C27CF783924F4EA165E5A6 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -367,39 +368,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		32C27CF783924F4EA165E5A6 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B9E148E12A314F2187AD7672 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		7728D4C61966005100509ABB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -414,13 +382,16 @@
 				770A566D19660F8D008491C7 /* Group.swift in Sources */,
 				7728D4D21966005200509ABB /* ColorViewController.swift in Sources */,
 				7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */,
+				775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */,
 				770A56781966125E008491C7 /* Note.swift in Sources */,
 				775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */,
+				775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */,
 				770A5674196611AB008491C7 /* Business.swift in Sources */,
 				770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */,
+				775C2C4919840D3C00ADB786 /* TableViewCells.swift in Sources */,
 				77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */,
+				775C2C47198322D400ADB786 /* NewCCTableViewController.swift in Sources */,
 				77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */,
-				770FF0A1196A0C0B0036D2FB /* NewViewController.swift in Sources */,
 				770A5670196610ED008491C7 /* User.swift in Sources */,
 				770A567219661178008491C7 /* ColdCall.swift in Sources */,
 			);
@@ -524,7 +495,6 @@
 		};
 		7728D4E91966005200509ABB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -541,7 +511,6 @@
 		};
 		7728D4EA1966005200509ABB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 03DC94BF6F5D48C6A6337A3A /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

@@ -34,7 +34,7 @@ class ColorViewController: UIViewController {
         
         // Test Core Data Models, creation and relationships.
         
-        //SeedData.seedAll(10)
+//        SeedData.seedAll(10)
         
     }
 
