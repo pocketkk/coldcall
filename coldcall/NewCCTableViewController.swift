@@ -134,6 +134,7 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
         var b = businessCurrent as Business
         contacts = []
         notes = []
+        
         nameField!.text = b.name
         addressField!.text = b.street
         cityField!.text = b.city
@@ -293,6 +294,9 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
 
             let n = Note.newObject()
             n.content = textField.text
+            if businessCurrent == nil {
+                businessCurrent = Business.newObject()
+            }
             businessCurrent?.addNote(n)
             //save context
             context.save(nil)
