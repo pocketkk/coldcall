@@ -39,6 +39,7 @@
 		775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4A198429CF00ADB786 /* Array+Each.swift */; };
 		775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4C19855BF600ADB786 /* DateHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
+		77BA2E5A198829990040FCCD /* ProspectTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */; };
 		77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5156197F16420041ECCD /* MenuViewController.swift */; };
 		77BE517119804CE30041ECCD /* handshake1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516C19804CE30041ECCD /* handshake1.png */; };
 		77BE517219804CE30041ECCD /* machine2.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516D19804CE30041ECCD /* machine2.png */; };
@@ -100,6 +101,7 @@
 		775C2C4A198429CF00ADB786 /* Array+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Each.swift"; sourceTree = "<group>"; };
 		775C2C4C19855BF600ADB786 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProspectTablePresenter.swift; sourceTree = "<group>"; };
 		77BE5156197F16420041ECCD /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 		77BE516C19804CE30041ECCD /* handshake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handshake1.png; sourceTree = "<group>"; };
 		77BE516D19804CE30041ECCD /* machine2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = machine2.png; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		7728D4CC1966005100509ABB /* coldcall */ = {
 			isa = PBXGroup;
 			children = (
+				77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */,
 				775CC86619690A0700F6A0FA /* ViewControllers */,
 				775CC865196909DA00F6A0FA /* Helpers */,
 				770A566E196610C5008491C7 /* Models */,
@@ -383,6 +386,7 @@
 				770A566D19660F8D008491C7 /* Group.swift in Sources */,
 				7728D4D21966005200509ABB /* ColorViewController.swift in Sources */,
 				7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */,
+				77BA2E5A198829990040FCCD /* ProspectTablePresenter.swift in Sources */,
 				775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */,
 				770A56781966125E008491C7 /* Note.swift in Sources */,
 				775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */,
