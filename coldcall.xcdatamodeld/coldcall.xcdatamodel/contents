@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="14A298i" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6208.6" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Businesses" representedClassName="Business" syncable="YES">
         <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="street" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="coldcalls" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ColdCalls" inverseName="business" inverseEntity="ColdCalls" syncable="YES"/>
         <relationship name="contacts" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Contacts" inverseName="business" inverseEntity="Contacts" syncable="YES"/>
         <relationship name="notes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notes" inverseName="business" inverseEntity="Notes" syncable="YES"/>
@@ -44,7 +45,7 @@
         <relationship name="group" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Groups" inverseName="users" inverseEntity="Groups" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Businesses" positionX="0" positionY="45" width="128" height="163"/>
+        <element name="Businesses" positionX="0" positionY="45" width="128" height="180"/>
         <element name="ColdCalls" positionX="-18" positionY="27" width="128" height="103"/>
         <element name="Contacts" positionX="36" positionY="81" width="128" height="150"/>
         <element name="Groups" positionX="-54" positionY="-9" width="128" height="28"/>

@@ -8,6 +8,7 @@ class Business: NSManagedObject {
     @NSManaged var city: String?
     @NSManaged var state: String?
     @NSManaged var phone: String?
+    @NSManaged var url: String?
     @NSManaged var coldcalls: NSSet
     @NSManaged var contacts: NSSet
     @NSManaged var notes: NSSet

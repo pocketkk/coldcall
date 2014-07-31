@@ -8,59 +8,82 @@
 
 import UIKit
 import CoreData
+import MapKit
 
-class NewCCTableViewController: UITableViewController, LoginViewControllerDelegate, UITextFieldDelegate {
+class NewCCTableViewController: UITableViewController, LoginViewControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate  {
 
     @IBOutlet var revealButtonItem: UIBarButtonItem!
     var tablePresenter: TableViewPresenter!
+    var placemark: CLPlacemark?
+    var placemarks = [MKMapItem]()
+    var locationManager: CLLocationManager = CLLocationManager()
+    var locationReceived: Bool?
+    var currentLocation: CLLocation?
+    var tempLocation: CLLocation?
+    var geocoder = CLGeocoder()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tablePresenter = TableViewPresenter(table: tableView, textFieldDelegate: self)
-        tablePresenter.createCellCache()
         let red : CGFloat = 150/255
         let green : CGFloat = 212/255
         let blue : CGFloat = 86/255
         let navBarColor : UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
         self.navigationController.navigationBar.titleTextAttributes = titleDict
         self.navigationController.navigationBar.barTintColor = navBarColor
-        
         self.revealButtonItem.target = self.revealViewController()
         self.revealButtonItem.action = "revealToggle:"
         self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 44.0
         tableView.allowsSelection = false
-        // Do any additional setup after loading the view.
+        
+        CLLocationManager.locationServicesEnabled()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestAlwaysAuthorization()
+        println("Started Location Services")
+        println(locationManager)
+        
         //displayFacebookLogin()
     }
     
     @IBAction func addContact(sender: AnyObject) {
-        println("Clicked")
-        let buttonPosition = sender.convertPoint(CGPointZero, toView: self.tableView)
-        let path : NSIndexPath = tableView.indexPathForRowAtPoint(buttonPosition)
-        println(path)
-
+        tablePresenter.addContact()
+    }
+    @IBAction func saveBusiness(sender: AnyObject) {
+        tablePresenter.saveBusiness()
     }
     
-    @IBAction func loadProspect(sender: AnyObject) {
-
+    @IBAction func saveContact(sender: AnyObject) {
+        tablePresenter.saveContact()
+    }
+    @IBAction func updateBusiness(sender: AnyObject) {
+        tablePresenter.saveBusiness()
+    }
+    
+    func searchForProspect(name: String, address: String) -> [AnyObject] {
+        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+        let context = appDel.cdh.managedObjectContext
+        var request = NSFetchRequest(entityName: "Businesses")
+        request.returnsObjectsAsFaults = false
+        // (name contains [c] %@) the [c] makes it case insensative
+        request.predicate = NSPredicate(format: "name contains [c] %@ && street contains [c] %@", name, address)
+        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)
+        return businesses
+    }
+    
+    func loadProspect(searchTerm: String) {
         tablePresenter.resetCellQuantitiesDict()
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         var request = NSFetchRequest(entityName: "Businesses")
         request.returnsObjectsAsFaults = false
-        
         // (name contains [c] %@) the [c] makes it case insensative
-        
-        request.predicate = NSPredicate(format: "name contains [c] %@", tablePresenter.nameField!.text)
+        request.predicate = NSPredicate(format: "name contains [c] %@", searchTerm)
         var businesses:Array = context.executeFetchRequest(request, error: nil)
-        
         // if businesses.count > 1 then do popup for choice otherwise show business
-        
         if businesses.count >= 2 {
             var actionSheet =  UIAlertController(title: "Choose Business", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
             for business in businesses {
@@ -68,27 +91,20 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
                 actionSheet.addAction(UIAlertAction(title: b.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
                     self.tablePresenter.businessCurrent = b
                     println(b.name)
-                self.tablePresenter.cellQuantitiesDict["1_existing_prospect_tools"] = 1
                     self.tablePresenter.displayBusiness()
                     }))
             }
             actionSheet.addAction(UIAlertAction(title: "New Prospect", style: UIAlertActionStyle.Cancel, handler: { (ACTION :UIAlertAction!)in
                 self.tablePresenter.businessCurrent = Business.newObject()
-            self.tablePresenter.cellQuantitiesDict["1_existing_prospect_tools"] = 1
                 self.tablePresenter.resetCellQuantitiesDict()
                 self.tablePresenter.newBusiness()
                 }))
-            
-
             self.presentViewController(actionSheet, animated: true, completion: nil)
         }
-        
         if businesses.count == 1 {
             tablePresenter.businessCurrent = (businesses[0] as Business)
-        tablePresenter.cellQuantitiesDict["1_existing_prospect_tools"] = 1
             tablePresenter.displayBusiness()
         }
-        
     }
 
     @IBAction func addNote(sender: AnyObject) {
@@ -117,15 +133,11 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
     }
     
     override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
-
         return tablePresenter.heightsCache[indexPath.row]
-        
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        
         return tablePresenter.cellCache[indexPath.row]
-        
     }
     
     func textFieldShouldReturn(textField: UITextField!) -> Bool {
@@ -140,7 +152,6 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
         let context = appDel.cdh.managedObjectContext
         println("did end editing")
         if textField.tag == 1 {
-
             let n = Note.newObject()
             n.content = textField.text
             tablePresenter.businessCurrent?.addNote(n)
@@ -149,7 +160,10 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
             textField.text = ""
             tablePresenter.cellQuantitiesDict["7_new_note"] = 0
             tablePresenter.displayBusiness()
-            
+        }
+        if textField.tag == 2 || textField.tag == 4 {
+            loadProspect(textField.text)
+            textField.text = ""
         }
         println(textField.tag)
     }
@@ -157,7 +171,6 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
     func closeFacebookLogin(){
         println("Close Window")
         self.dismissViewControllerAnimated(true, completion: nil)
-        
     }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
@@ -176,79 +189,113 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
         vc.delegate = self
         self.presentViewController(vc, animated: true, completion: nil);
     }
-
-//    override func didReceiveMemoryWarning() {
-//        super.didReceiveMemoryWarning()
-//        // Dispose of any resources that can be recreated.
-//    }
+    
+    @IBAction func updateLocation() {
+        println("Started to look...")
+        locationManager.startUpdatingLocation()
+    }
+    
+    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
+        currentLocation = locations[0] as? CLLocation
+//        geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
+//            (placemarks, error) in
+//            println(placemarks)
+//            
+//            var actionSheet =  UIAlertController(title: "Choose Business from Location", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+//            if placemarks.count >= 1 {
+//                for pm in placemarks {
+//                    let p = pm as CLPlacemark
+//                    actionSheet.addAction(UIAlertAction(title: p.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
+//                        println("You chose: \(p.name)")
+//                        }))
+//                }
+//                actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (ACTION :UIAlertAction!)in
+//                        println("Cancelled")
+//                        self.localSearch()
+//                    }))
+//                self.presentViewController(actionSheet, animated: true, completion: nil)
+//                }
 //
-//    // MARK: - Table view data source
 //
-//    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-//        // #warning Potentially incomplete method implementation.
-//        // Return the number of sections.
-//        return 0
-//    }
-//
-//    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete method implementation.
-//        // Return the number of rows in the section.
-//        return 0
-//    }
-
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
-
-        // Configure the cell...
-
-        return cell
+//            })
+        localSearch()
+        locationManager.stopUpdatingLocation()
     }
-    */
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView!, canEditRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
+    
+    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
+        locationReceived = false
+        println(error)
+        println("Error retrieving Location")
     }
-    */
+    
+    func displayLocationSearchResults() {
+        var actionSheet =  UIAlertController(title: "Choose Business from Location", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
+        if placemarks.count >= 1 {
+            for pm in placemarks {
+                let p = pm as MKMapItem
+                actionSheet.addAction(UIAlertAction(title: p.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
+                    println("You chose: \(p.name)")
+                    var placeMark = p.placemark as CLPlacemark
+                    let b : [AnyObject] = self.searchForProspect(p.name, address: placeMark.subThoroughfare)
+                    if b.count == 0 {
+                        self.tablePresenter.businessCurrent = Business.newObject() as Business
+                        self.tablePresenter.businessCurrent!.name = p.name
+                        self.tablePresenter.businessCurrent!.street = "\(placeMark.subThoroughfare) \(placeMark.thoroughfare)"
+                        self.tablePresenter.businessCurrent!.city = placeMark.locality
+                        self.tablePresenter.businessCurrent!.state = placeMark.administrativeArea
+                        self.tablePresenter.businessCurrent!.phone = p.phoneNumber
+                        self.tablePresenter.businessCurrent!.url = "\(p.url)"
+                        println(p.name)
+                    } else {
+                        self.tablePresenter.businessCurrent = b[0] as? Business
+                    }
+                    self.tablePresenter.displayBusiness()
+                    }))
+            }
+            actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (ACTION :UIAlertAction!)in
+                println("Cancelled")
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView!, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath!) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView!, moveRowAtIndexPath fromIndexPath: NSIndexPath!, toIndexPath: NSIndexPath!) {
+                }))
+            self.presentViewController(actionSheet, animated: true, completion: nil)
+        }
 
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView!, canMoveRowAtIndexPath indexPath: NSIndexPath!) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+    
+    func localSearch() {
+        
+        //There is a location bug where sometimes this code unwraps nil
+        
+        var request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "restaurant"
+        println("Looking for restuarants")
+        
+        let distance : Double = 1500.00
+        
+        var userRegion : MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(currentLocation!.coordinate, distance, distance)
+        
+        request.region = userRegion
+        
+        var search:MKLocalSearch = MKLocalSearch(request: request)
+        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
+        search.startWithCompletionHandler {
+            (response:MKLocalSearchResponse!, error:NSError!) in
+            println("Response: \(response)")
+            self.placemarks = []
+            if !error {
+                    for pm in response.mapItems {
+                        let p = pm as MKMapItem
+                        self.placemarks.append(p)
+                        println(p.name)
+                    }
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                self.displayLocationSearchResults()
+                
+            } else {
+                println("Error in local map search")
+                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
+                //Do something in case of error
+            }
+        }
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }

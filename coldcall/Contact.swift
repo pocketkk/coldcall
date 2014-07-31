@@ -36,4 +36,13 @@ class Contact: NSManagedObject {
         return false
     }
     
+    func fullName() -> String {
+        return "\(firstName!) \(lastName!)"
+    }
+    
+    func fullNameWithTitle() -> String{
+        return "\(firstName!) \(lastName!) - \(title!)"
+    }
+    
+    
 }

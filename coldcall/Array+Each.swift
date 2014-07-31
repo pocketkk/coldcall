@@ -12,7 +12,6 @@ extension Array {
         for item in self {
             iterator(item)
         }
-        
         return self
     }
     
@@ -21,7 +20,6 @@ extension Array {
         for item in self {
             iterator(item, i++)
         }
-        
         return self
     }
 }
@@ -31,7 +29,6 @@ extension Range {
         for item in self {
             iterator(item)
         }
-        
         return self
     }
 }
@@ -42,7 +39,6 @@ extension Dictionary {
         for (key, value) in self {
             iterator(key, value)
         }
-        
         return self
     }
 }
@@ -52,7 +48,6 @@ extension Int {
         for _ in 0..<self {
             iterator()
         }
-        
         return self
     }
     
@@ -60,7 +55,6 @@ extension Int {
         for i in 0..<self {
             iterator(i)
         }
-        
         return self
     }
 }

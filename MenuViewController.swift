@@ -11,36 +11,21 @@ import UIKit
 
 class SWUITableViewCell : UITableViewCell {
     @IBOutlet var label : UILabel!
-
-    
 }
 
 class MenuViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
         self.view.backgroundColor = UIColor.lightGrayColor()
         self.tableView.backgroundColor = UIColor.lightGrayColor()
         self.tableView.separatorColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
-        
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
-        
-        if sender.isKindOfClass(UITableViewCell) {
-//            var c : UILabel = sender.label
-//            var nav : UINavigationController = segue.destinationViewController as UINavigationController
-//            var cvc : ColorViewController = nav.childViewControllers[0] as ColorViewController
-//            cvc.color = c.textColor
-//            cvc.text = c.text
+        if sender.isKindOfClass(UITableViewCell)
+        {
         }
-        
     }
     
     func prepareForSegueB(segue: UIStoryboardSegue!, sender: AnyObject!) {
@@ -82,15 +67,10 @@ class MenuViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        
         let cellIdentifiers = ["title", "coldcalls", "contacts", "map", "settings"]
-
         var cellIdentifier = "Cell"
-        
         cellIdentifier = cellIdentifiers[indexPath.row]
-        
         var cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? UITableViewCell
-        
         return cell
     }
 

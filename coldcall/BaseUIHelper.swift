@@ -31,7 +31,6 @@ class BaseUIDefaults {
     }
     
     init() {
-        
     }
     
 }
@@ -94,7 +93,6 @@ class CCColumnView : UIView, Movable {
 class CCImage: UIImageView, Movable {
     
     let shared = BaseUIDefaults.sharedInstance
-    
     init(path: String, view: UIView) {
         super.init(frame: shared.returnRectFor(view))
         let image = UIImage(named: path)
@@ -119,9 +117,8 @@ class CCImage: UIImageView, Movable {
 class CCButton : UIButton, Movable {
     
     // Button should be centered
-    
     let shared = BaseUIDefaults.sharedInstance
-    
+
     init(view: UIView, text: String) {
         let viewBounds = shared.returnRectFor(view)
         super.init(frame: viewBounds)
@@ -211,7 +208,7 @@ class UIFactory : BaseUIDefaults {
         b.text = text
         b.font = UIFont.systemFontOfSize(fontSize)
         b.textColor = headTextColor
-        b.textAlignment = NSTextAlignment.Left
+        b.textAlignment = NSTextAlignment.Center
         return b
     }
     

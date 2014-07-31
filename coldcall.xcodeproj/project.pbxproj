@@ -174,7 +174,6 @@
 		7728D4CC1966005100509ABB /* coldcall */ = {
 			isa = PBXGroup;
 			children = (
-				77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */,
 				775CC86619690A0700F6A0FA /* ViewControllers */,
 				775CC865196909DA00F6A0FA /* Helpers */,
 				770A566E196610C5008491C7 /* Models */,
@@ -243,6 +242,7 @@
 		775CC86619690A0700F6A0FA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */,
 				77BE5156197F16420041ECCD /* MenuViewController.swift */,
 				7728D4D11966005200509ABB /* ColorViewController.swift */,
 				7728D4D31966005200509ABB /* MapViewController.swift */,

@@ -3,8 +3,8 @@ import CoreData
 @objc(Note)
 class Note: NSManagedObject {
     
-    @NSManaged var content:   String
-    @NSManaged var date: NSDate
+    @NSManaged var content:   String?
+    @NSManaged var date: NSDate?
     @NSManaged var business: Business
     @NSManaged var coldcall: ColdCall
     @NSManaged var contact: Contact
