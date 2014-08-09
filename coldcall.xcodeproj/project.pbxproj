@@ -46,7 +46,6 @@
 		77BE517319804CE30041ECCD /* map5.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516E19804CE30041ECCD /* map5.png */; };
 		77BE517419804CE30041ECCD /* multiple25.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516F19804CE30041ECCD /* multiple25.png */; };
 		77BE517519804CE30041ECCD /* placeholder8.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE517019804CE30041ECCD /* placeholder8.png */; };
-		77BE5177198160C20041ECCD /* BaseUIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5176198160C20041ECCD /* BaseUIHelper.swift */; };
 		77CD6A08196DFCCE00A50D33 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */; };
 		77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
@@ -108,7 +107,6 @@
 		77BE516E19804CE30041ECCD /* map5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map5.png; sourceTree = "<group>"; };
 		77BE516F19804CE30041ECCD /* multiple25.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = multiple25.png; sourceTree = "<group>"; };
 		77BE517019804CE30041ECCD /* placeholder8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder8.png; sourceTree = "<group>"; };
-		77BE5176198160C20041ECCD /* BaseUIHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseUIHelper.swift; sourceTree = "<group>"; };
 		77CD6A07196DFCCE00A50D33 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		77CD6A0B196E049700A50D33 /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */,
 				7728D4D81966005200509ABB /* Images.xcassets */,
 				77CD6A0B196E049700A50D33 /* PrefixHeader.pch */,
-				775C2C4A198429CF00ADB786 /* Array+Each.swift */,
 			);
 			path = coldcall;
 			sourceTree = "<group>";
@@ -231,8 +228,8 @@
 		775CC865196909DA00F6A0FA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				77BE5176198160C20041ECCD /* BaseUIHelper.swift */,
 				7728D4F819660DFD00509ABB /* CoreDataHelper.swift */,
+				775C2C4A198429CF00ADB786 /* Array+Each.swift */,
 				775CC8631968E76B00F6A0FA /* SeedData.swift */,
 				775C2C4C19855BF600ADB786 /* DateHelper.swift */,
 			);
@@ -377,7 +374,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				77BE5177198160C20041ECCD /* BaseUIHelper.swift in Sources */,
 				7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */,
 				7728D4D41966005200509ABB /* MapViewController.swift in Sources */,
 				770A567619661217008491C7 /* Contact.swift in Sources */,

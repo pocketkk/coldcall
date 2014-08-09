@@ -33,15 +33,15 @@ extension Range {
     }
 }
 
-extension Dictionary {
-    func each(iterator: (KeyType,ValueType) -> Void) -> Dictionary
-    {
-        for (key, value) in self {
-            iterator(key, value)
-        }
-        return self
-    }
-}
+//extension Dictionary {
+//    func each(iterator: (KeyType,ValueType) -> Void) -> Dictionary
+//    {
+//        for (key, value) in self {
+//            iterator(key, value)
+//        }
+//        return self
+//    }
+//}
 
 extension Int {
     func times(iterator: () -> Void) -> Int{

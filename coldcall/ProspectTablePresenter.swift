@@ -98,7 +98,6 @@ class TableViewPresenter : NSObject {
     }
 
     func flashScreen(message: String){
-        let factory = UIFactory()
         let v = UIView(frame: tableView.bounds)
         let i = UIView(frame: CGRectMake(0, 0, 200.0, 100.0))
         i.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.5)

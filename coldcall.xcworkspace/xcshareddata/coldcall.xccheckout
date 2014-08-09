@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>FE09BA41-F5F7-48CB-8839-589E86A39460</string>
+	<key>IDESourceControlProjectName</key>
+	<string>coldcall</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>9C3ADC0B9561CB57EB5719A3A1A01C0A3493EB87</key>
+		<string>https://github.com/pocketkk/coldcall</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>coldcall.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>9C3ADC0B9561CB57EB5719A3A1A01C0A3493EB87</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/pocketkk/coldcall</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>9C3ADC0B9561CB57EB5719A3A1A01C0A3493EB87</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>9C3ADC0B9561CB57EB5719A3A1A01C0A3493EB87</string>
+			<key>IDESourceControlWCCName</key>
+			<string>coldcall</string>
+		</dict>
+	</array>
+</dict>
+</plist>

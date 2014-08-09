@@ -16,7 +16,7 @@ class ColorViewController: UIViewController {
     var color: UIColor = UIColor.brownColor()
     var text: String = "Text"
 
-    init(coder aDecoder: NSCoder!)
+    required init(coder aDecoder: NSCoder!)
     {
         super.init(coder: aDecoder)
     }
