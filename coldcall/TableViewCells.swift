@@ -1,5 +1,8 @@
 import UIKit
 
+class FacebookCellHeader : UITableViewCell {
+}
+
 class ProspectHeaderCell : UITableViewCell {
 }
 

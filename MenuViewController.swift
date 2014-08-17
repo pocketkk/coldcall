@@ -17,9 +17,9 @@ class MenuViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = UIColor.lightGrayColor()
-        self.tableView.backgroundColor = UIColor.lightGrayColor()
-        self.tableView.separatorColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
+//        self.view.backgroundColor = UIColor.lightGrayColor()
+//        self.tableView.backgroundColor = UIColor.lightGrayColor()
+//        self.tableView.separatorColor = UIColor.lightGrayColor().colorWithAlphaComponent(0.5)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
@@ -70,7 +70,22 @@ class MenuViewController: UITableViewController {
         let cellIdentifiers = ["title", "coldcalls", "contacts", "map", "settings"]
         var cellIdentifier = "Cell"
         cellIdentifier = cellIdentifiers[indexPath.row]
+        
+        if cellIdentifier == "title" {
+            var imageView = UIImageView(frame: CGRectMake(2,2,20,30))
+            var image = UIImage(named: "profile.jpg")
+        }
+        
         var cell : UITableViewCell? = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath) as? UITableViewCell
+        if cellIdentifier == "title" {
+            var imageView = UIImageView(frame: CGRectMake(12,17,20,30))
+            imageView.image = UIImage(named: "placeholder8.png")
+            imageView.sizeToFit()
+            var nameLabel = UILabel(frame: CGRectMake(52,21,200,20))
+            nameLabel.text = "This is my Name"
+            cell?.addSubview(imageView)
+            cell?.addSubview(nameLabel)
+        }
         return cell
     }
 

@@ -197,29 +197,9 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
     
     func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
         currentLocation = locations[0] as? CLLocation
-//        geocoder.reverseGeocodeLocation(currentLocation, completionHandler: {
-//            (placemarks, error) in
-//            println(placemarks)
-//            
-//            var actionSheet =  UIAlertController(title: "Choose Business from Location", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-//            if placemarks.count >= 1 {
-//                for pm in placemarks {
-//                    let p = pm as CLPlacemark
-//                    actionSheet.addAction(UIAlertAction(title: p.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
-//                        println("You chose: \(p.name)")
-//                        }))
-//                }
-//                actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (ACTION :UIAlertAction!)in
-//                        println("Cancelled")
-//                        self.localSearch()
-//                    }))
-//                self.presentViewController(actionSheet, animated: true, completion: nil)
-//                }
-//
-//
-//            })
-        localSearch()
         locationManager.stopUpdatingLocation()
+        localSearch()
+
     }
     
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {

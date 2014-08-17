@@ -7,27 +7,20 @@ class TableViewPresenter : NSObject {
     var flashView : UIView?
     var contactsCount = 0
     var notesCount = 0
-    
     var businessCurrent : Business?
     var contacts = [Contact]()
     var notes = [Note]()
-    
     var cellCache : [UITableViewCell] = []
     var heightsCache : [CGFloat] = []
-    
     var coldcall : ColdCall?
-    
     var searchField : UITextField!
-    
     var nameField : UITextField!
     var addressField : UITextField!
     var cityField : UITextField!
     var stateField : UITextField!
     var phoneField : UITextField!
     var urlField : UITextField!
-    
     var noteField : UITextField?
-    
     var firstNameField : UITextField!
     var lastNameField : UITextField!
     var emailField : UITextField!
@@ -78,8 +71,6 @@ class TableViewPresenter : NSObject {
         } else {
             flashScreen("All required fields must be filled.")
         }
-        
-        
     }
     
     func updateBusinessModel(){
@@ -105,20 +96,12 @@ class TableViewPresenter : NSObject {
         i.layer.borderWidth = 2.0
         i.layer.borderColor = UIColor.clearColor().CGColor
         i.layer.cornerRadius = 5.0
-        
         let defaultPadding : CGFloat = 10.0
-        
-
         let label = UILabel(frame: CGRectMake(i.bounds.minX + defaultPadding, i.bounds.minY + defaultPadding, i.bounds.width - (defaultPadding * 2), i.bounds.height - (defaultPadding * 2)))
-
         label.text = message
         label.numberOfLines = 0
         label.textColor = UIColor.whiteColor()
         label.textAlignment = .Center
-
-        println(v.center.x)
-        println(label.center.x)
-        
         i.addSubview(label)
         v.addSubview(i)
         tableView.addSubview(v)
@@ -142,7 +125,6 @@ class TableViewPresenter : NSObject {
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         var c = Contact.newObject() as Contact
-        
         c.firstName = firstNameField.text
         c.lastName = lastNameField.text
         c.title = titleField.text
@@ -150,14 +132,10 @@ class TableViewPresenter : NSObject {
         c.phone = contactPhoneField.text
         businessCurrent?.addContact(c)
         cellQuantitiesDict["4_new_contact"] = 0
-        
         context.save(nil)
-        
         clearFields([firstNameField, lastNameField, titleField, emailField, contactPhoneField])
-
         displayBusiness()
         flashScreen("CONTACT SAVED!")
-        
     }
     
     func createCellCache() {
@@ -174,14 +152,6 @@ class TableViewPresenter : NSObject {
                 self.searchField = (cell as SearchCell).searchField
                 (cell as SearchCell).searchField.delegate = tfDelegate
                 (cell as SearchCell).searchField.tag = 2
-//                
-//                let label = UILabel()
-//                let magGlass = "🔍"
-//                label.text = magGlass
-//                label.sizeToFit()
-//                searchField.leftView = label
-//                searchField.leftViewMode = .Always
-
             }
             if cellIdentifier == "1_new_prospect_tools" {
 
