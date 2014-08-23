@@ -26,6 +26,7 @@ class UserSessionController {
     private var userImageLarge : UIImage?
     
     var delegate : UserSessionControllerDelegate?
+    var currentBusiness : Business?
     
     func checkLoginState() {
         var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()

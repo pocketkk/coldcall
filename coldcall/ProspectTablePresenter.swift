@@ -7,7 +7,7 @@ class TableViewPresenter : NSObject {
     var flashView : UIView?
     var contactsCount = 0
     var notesCount = 0
-    var businessCurrent : Business?
+    //var userSession.currentBusiness : Business?
     var contacts = [Contact]()
     var notes = [Note]()
     var cellCache : [UITableViewCell] = []
@@ -26,6 +26,8 @@ class TableViewPresenter : NSObject {
     var emailField : UITextField!
     var contactPhoneField : UITextField!
     var titleField : UITextField!
+    
+    let userSession = UserSessionController.sharedInstance
     
     let cellTypesOrder : [String] = ["00_search_bar", "0_prospect_header", "1_new_prospect_tools", "1_existing_prospect_tools", "2_new_prospect", "3_contacts_header", "4_new_contact", "5_contact", "6_notes_header", "7_new_note", "8_note"]
     
@@ -48,7 +50,7 @@ class TableViewPresenter : NSObject {
         super.init()
         tableView = table
         tfDelegate = textFieldDelegate
-        businessCurrent = Business.newObject() as Business
+        userSession.currentBusiness = Business.newObject() as Business
         createCellCache()
     }
     
@@ -65,21 +67,21 @@ class TableViewPresenter : NSObject {
             updateBusinessModel()
             context.save(nil)
             clearFields([nameField, addressField, cityField, stateField, phoneField, urlField])
-            businessCurrent = Business.newObject() as Business
+            userSession.currentBusiness = Business.newObject() as Business
             displayBusiness()
-            flashScreen("BUSINESS SAVED!")
+            Flash().message("BUSINESS SAVED!", view: tableView)
         } else {
-            flashScreen("All required fields must be filled.")
+            Flash().message("All required fields must be completed.", view: tableView)
         }
     }
     
     func updateBusinessModel(){
-        businessCurrent!.name = nameField.text
-        businessCurrent!.street = addressField.text
-        businessCurrent!.city = cityField.text
-        businessCurrent!.state = stateField.text
-        businessCurrent!.phone = phoneField.text
-        businessCurrent!.url = urlField.text
+        userSession.currentBusiness!.name = nameField.text
+        userSession.currentBusiness!.street = addressField.text
+        userSession.currentBusiness!.city = cityField.text
+        userSession.currentBusiness!.state = stateField.text
+        userSession.currentBusiness!.phone = phoneField.text
+        userSession.currentBusiness!.url = urlField.text
     }
     
     func clearFields(arr: [UITextField]) {
@@ -88,31 +90,6 @@ class TableViewPresenter : NSObject {
         }
     }
 
-    func flashScreen(message: String){
-        let v = UIView(frame: tableView.bounds)
-        let i = UIView(frame: CGRectMake(0, 0, 200.0, 100.0))
-        i.backgroundColor = UIColor.darkGrayColor().colorWithAlphaComponent(0.5)
-        i.center = v.center
-        i.layer.borderWidth = 2.0
-        i.layer.borderColor = UIColor.clearColor().CGColor
-        i.layer.cornerRadius = 5.0
-        let defaultPadding : CGFloat = 10.0
-        let label = UILabel(frame: CGRectMake(i.bounds.minX + defaultPadding, i.bounds.minY + defaultPadding, i.bounds.width - (defaultPadding * 2), i.bounds.height - (defaultPadding * 2)))
-        label.text = message
-        label.numberOfLines = 0
-        label.textColor = UIColor.whiteColor()
-        label.textAlignment = .Center
-        i.addSubview(label)
-        v.addSubview(i)
-        tableView.addSubview(v)
-        flashView  = v
-        var timer = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: Selector("removeFlashScreen"), userInfo: nil, repeats: false)
-    }
-    
-    func removeFlashScreen() {
-        flashView?.removeFromSuperview()
-    }
-    
     func fieldsValidate() -> Bool {
         if nameField.text.isEmpty {
             return false
@@ -130,12 +107,12 @@ class TableViewPresenter : NSObject {
         c.title = titleField.text
         c.email = emailField.text
         c.phone = contactPhoneField.text
-        businessCurrent?.addContact(c)
+        userSession.currentBusiness?.addContact(c)
         cellQuantitiesDict["4_new_contact"] = 0
         context.save(nil)
         clearFields([firstNameField, lastNameField, titleField, emailField, contactPhoneField])
         displayBusiness()
-        flashScreen("CONTACT SAVED!")
+        Flash().message("CONTACT SAVED!", view: tableView)
     }
     
     func createCellCache() {
@@ -268,20 +245,20 @@ class TableViewPresenter : NSObject {
         notes = []
         contactsCount = 0
         notesCount = 0
-        cellQuantitiesDict["5_contact"] = businessCurrent?.contacts.count
-        cellQuantitiesDict["8_note"] = businessCurrent?.notes.count
-        var c = businessCurrent!.coldcalls
+        cellQuantitiesDict["5_contact"] = userSession.currentBusiness?.contacts.count
+        cellQuantitiesDict["8_note"] = userSession.currentBusiness?.notes.count
+        var c = userSession.currentBusiness!.coldcalls
         for call in c {
             var l = call as ColdCall
             println("There are \(l.note.content) notes for this prospect")
         }
         
-        for contact in businessCurrent!.contacts {
+        for contact in userSession.currentBusiness!.contacts {
             var c = contact as Contact
             println("add contact")
             contacts.append(c)
         }
-        for note in businessCurrent!.notes {
+        for note in userSession.currentBusiness!.notes {
             var n = note as Note
             println("add note")
             notes.append(n)
@@ -289,37 +266,37 @@ class TableViewPresenter : NSObject {
         notes.sort({$0.date?.timeIntervalSinceNow > $1.date?.timeIntervalSinceNow})
         println("There are \(notes.count) notes and \(contacts.count) contacts")
         createCellCache()
-        println(businessCurrent?)
-        println(businessCurrent?.name)
-        if (businessCurrent?.name) == nil {
+        println(userSession.currentBusiness?)
+        println(userSession.currentBusiness?.name)
+        if (userSession.currentBusiness?.name) == nil {
             nameField!.text = ""
         } else {
-            nameField!.text = businessCurrent?.name
+            nameField!.text = userSession.currentBusiness?.name
         }
-        if businessCurrent?.street == nil {
+        if userSession.currentBusiness?.street == nil {
             addressField!.text = ""
         } else {
-            addressField!.text = businessCurrent?.street
+            addressField!.text = userSession.currentBusiness?.street
         }
-        if businessCurrent?.city == nil {
+        if userSession.currentBusiness?.city == nil {
             cityField!.text = ""
         } else {
-            cityField!.text = businessCurrent?.city
+            cityField!.text = userSession.currentBusiness?.city
         }
-        if businessCurrent?.state == nil {
+        if userSession.currentBusiness?.state == nil {
             stateField!.text = ""
         } else {
-            stateField!.text = businessCurrent?.state
+            stateField!.text = userSession.currentBusiness?.state
         }
-        if businessCurrent?.phone == nil {
+        if userSession.currentBusiness?.phone == nil {
             phoneField!.text = ""
         } else {
-            phoneField!.text = businessCurrent?.phone
+            phoneField!.text = userSession.currentBusiness?.phone
         }
-        if businessCurrent?.url == nil {
+        if userSession.currentBusiness?.url == nil {
             urlField!.text = ""
         } else {
-            urlField!.text = businessCurrent?.url
+            urlField!.text = userSession.currentBusiness?.url
         }
         tableView.reloadData()
     }

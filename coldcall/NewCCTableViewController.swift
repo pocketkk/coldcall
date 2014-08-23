@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MapKit
 
-class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLocationManagerDelegate  {
+class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLocationManagerDelegate, ProspectSearchControllerDelegate  {
 
     @IBOutlet var revealButtonItem: UIBarButtonItem!
     var tablePresenter: TableViewPresenter!
@@ -21,22 +21,13 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
     var currentLocation: CLLocation?
     var tempLocation: CLLocation?
     var geocoder = CLGeocoder()
+    let userSession = UserSessionController.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tablePresenter = TableViewPresenter(table: tableView, textFieldDelegate: self)
-        let red : CGFloat = 150/255
-        let green : CGFloat = 212/255
-        let blue : CGFloat = 86/255
-        let navBarColor : UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
-        self.navigationController.navigationBar.titleTextAttributes = titleDict
-        self.navigationController.navigationBar.barTintColor = navBarColor
-        self.revealButtonItem.target = self.revealViewController()
-        self.revealButtonItem.action = "revealToggle:"
-        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 44.0
+        applyUIAttributesToNavigation()
+        setupMenuView()
         tableView.allowsSelection = false
         
         CLLocationManager.locationServicesEnabled()
@@ -47,6 +38,22 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
         println(locationManager)
         
         FacebookSessionController.sharedInstance.findOrGetSession(self)
+    }
+    
+    func applyUIAttributesToNavigation(){
+        let red : CGFloat = 150/255
+        let green : CGFloat = 212/255
+        let blue : CGFloat = 86/255
+        let navBarColor : UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+        self.navigationController.navigationBar.titleTextAttributes = titleDict
+        self.navigationController.navigationBar.barTintColor = navBarColor
+    }
+    
+    func setupMenuView() {
+        self.revealButtonItem.target = self.revealViewController()
+        self.revealButtonItem.action = "revealToggle:"
+        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     @IBAction func addContact(sender: AnyObject) {
@@ -62,50 +69,6 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
     @IBAction func updateBusiness(sender: AnyObject) {
         tablePresenter.saveBusiness()
     }
-    
-    func searchForProspect(name: String, address: String) -> [AnyObject] {
-        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-        let context = appDel.cdh.managedObjectContext
-        var request = NSFetchRequest(entityName: "Businesses")
-        request.returnsObjectsAsFaults = false
-        // (name contains [c] %@) the [c] makes it case insensative
-        request.predicate = NSPredicate(format: "name contains [c] %@ && street contains [c] %@", name, address)
-        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)
-        return businesses
-    }
-    
-    func loadProspect(searchTerm: String) {
-        tablePresenter.resetCellQuantitiesDict()
-        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-        let context = appDel.cdh.managedObjectContext
-        var request = NSFetchRequest(entityName: "Businesses")
-        request.returnsObjectsAsFaults = false
-        // (name contains [c] %@) the [c] makes it case insensative
-        request.predicate = NSPredicate(format: "name contains [c] %@", searchTerm)
-        var businesses:Array = context.executeFetchRequest(request, error: nil)
-        // if businesses.count > 1 then do popup for choice otherwise show business
-        if businesses.count >= 2 {
-            var actionSheet =  UIAlertController(title: "Choose Business", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-            for business in businesses {
-                var b = business as Business
-                actionSheet.addAction(UIAlertAction(title: b.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
-                    self.tablePresenter.businessCurrent = b
-                    println(b.name)
-                    self.tablePresenter.displayBusiness()
-                    }))
-            }
-            actionSheet.addAction(UIAlertAction(title: "New Prospect", style: UIAlertActionStyle.Cancel, handler: { (ACTION :UIAlertAction!)in
-                self.tablePresenter.businessCurrent = Business.newObject()
-                self.tablePresenter.resetCellQuantitiesDict()
-                self.tablePresenter.newBusiness()
-                }))
-            self.presentViewController(actionSheet, animated: true, completion: nil)
-        }
-        if businesses.count == 1 {
-            tablePresenter.businessCurrent = (businesses[0] as Business)
-            tablePresenter.displayBusiness()
-        }
-    }
 
     @IBAction func addNote(sender: AnyObject) {
         if tablePresenter.cellQuantitiesDict["7_new_note"] == 0
@@ -117,18 +80,13 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
         return 1
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete method implementation.
-        // Return the number of rows in the section.
         return tablePresenter.totalCells()
     }
     
@@ -154,7 +112,7 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
         if textField.tag == 1 {
             let n = Note.newObject()
             n.content = textField.text
-            tablePresenter.businessCurrent?.addNote(n)
+            userSession.currentBusiness?.addNote(n)
             //save context
             context.save(nil)
             textField.text = ""
@@ -162,12 +120,36 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
             tablePresenter.displayBusiness()
         }
         if textField.tag == 2 || textField.tag == 4 {
-            loadProspect(textField.text)
+            let psController = ProspectSearchController()
+            psController.delegate = self
+            psController.loadProspect(textField.text, controller: self)
             textField.text = ""
         }
         println(textField.tag)
     }
     
+    /* ProspectSearchControllerDelegate protocol functions */
+    
+    func didFindBusinessFromSearch(business: Business) {
+        tablePresenter.resetCellQuantitiesDict()
+        userSession.currentBusiness = business
+        tablePresenter.displayBusiness()
+    }
+    
+    func didNotFindBusinessFromSearch() {
+        tablePresenter.resetCellQuantitiesDict()
+        userSession.currentBusiness = Business.newObject()
+        tablePresenter.newBusiness()
+        tablePresenter.displayBusiness()
+        Flash().message("NO BUSINESSES FOUND MATCHING SEARCH.", view: tableView)
+    }
+    
+    func didChooseNewBusinessFromSearch(){
+        tablePresenter.resetCellQuantitiesDict()
+        userSession.currentBusiness = Business.newObject()
+        tablePresenter.newBusiness()
+        tablePresenter.displayBusiness()
+    }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         for view in self.view.subviews {
@@ -179,7 +161,7 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
         self.view.endEditing(true)
     }
     
-       @IBAction func updateLocation() {
+    @IBAction func updateLocation() {
         println("Started to look...")
         locationManager.startUpdatingLocation()
     }
@@ -205,18 +187,18 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
                 actionSheet.addAction(UIAlertAction(title: p.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
                     println("You chose: \(p.name)")
                     var placeMark = p.placemark as CLPlacemark
-                    let b : [AnyObject] = self.searchForProspect(p.name, address: placeMark.subThoroughfare)
+                    let b : [AnyObject] = ProspectSearchController().searchForProspect(p.name, address: placeMark.subThoroughfare)
                     if b.count == 0 {
-                        self.tablePresenter.businessCurrent = Business.newObject() as Business
-                        self.tablePresenter.businessCurrent!.name = p.name
-                        self.tablePresenter.businessCurrent!.street = "\(placeMark.subThoroughfare) \(placeMark.thoroughfare)"
-                        self.tablePresenter.businessCurrent!.city = placeMark.locality
-                        self.tablePresenter.businessCurrent!.state = placeMark.administrativeArea
-                        self.tablePresenter.businessCurrent!.phone = p.phoneNumber
-                        self.tablePresenter.businessCurrent!.url = "\(p.url)"
+                        self.userSession.currentBusiness = Business.newObject() as Business
+                        self.userSession.currentBusiness!.name = p.name
+                        self.userSession.currentBusiness!.street = "\(placeMark.subThoroughfare) \(placeMark.thoroughfare)"
+                        self.userSession.currentBusiness!.city = placeMark.locality
+                        self.userSession.currentBusiness!.state = placeMark.administrativeArea
+                        self.userSession.currentBusiness!.phone = p.phoneNumber
+                        self.userSession.currentBusiness!.url = "\(p.url)"
                         println(p.name)
                     } else {
-                        self.tablePresenter.businessCurrent = b[0] as? Business
+                        self.userSession.currentBusiness = b[0] as? Business
                     }
                     self.tablePresenter.displayBusiness()
                     }))
