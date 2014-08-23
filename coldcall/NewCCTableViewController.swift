@@ -10,7 +10,7 @@ import UIKit
 import CoreData
 import MapKit
 
-class NewCCTableViewController: UITableViewController, LoginViewControllerDelegate, UITextFieldDelegate, CLLocationManagerDelegate  {
+class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLocationManagerDelegate  {
 
     @IBOutlet var revealButtonItem: UIBarButtonItem!
     var tablePresenter: TableViewPresenter!
@@ -46,7 +46,7 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
         println("Started Location Services")
         println(locationManager)
         
-        //displayFacebookLogin()
+        FacebookSessionController.sharedInstance.findOrGetSession(self)
     }
     
     @IBAction func addContact(sender: AnyObject) {
@@ -168,10 +168,6 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
         println(textField.tag)
     }
     
-    func closeFacebookLogin(){
-        println("Close Window")
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
         for view in self.view.subviews {
@@ -183,14 +179,7 @@ class NewCCTableViewController: UITableViewController, LoginViewControllerDelega
         self.view.endEditing(true)
     }
     
-    func displayFacebookLogin(){
-        let storyboard : UIStoryboard = UIStoryboard(name: "MainStoryboard", bundle: nil);
-        let vc : LoginViewController = storyboard.instantiateViewControllerWithIdentifier("login_view") as LoginViewController
-        vc.delegate = self
-        self.presentViewController(vc, animated: true, completion: nil);
-    }
-    
-    @IBAction func updateLocation() {
+       @IBAction func updateLocation() {
         println("Started to look...")
         locationManager.startUpdatingLocation()
     }

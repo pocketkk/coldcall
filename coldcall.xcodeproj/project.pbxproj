@@ -39,6 +39,10 @@
 		775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4A198429CF00ADB786 /* Array+Each.swift */; };
 		775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4C19855BF600ADB786 /* DateHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
+		778BC81B19A3AC9E00FC2D73 /* UserSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BC81A19A3AC9E00FC2D73 /* UserSessionController.swift */; };
+		778BC82019A635E100FC2D73 /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BC81F19A635E100FC2D73 /* SettingsTableViewController.swift */; };
+		778BC82219A691BA00FC2D73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BC82119A691BA00FC2D73 /* ProfileViewController.swift */; };
+		778BC82519A7BEF000FC2D73 /* FacebookSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BC82419A7BEF000FC2D73 /* FacebookSessionController.swift */; };
 		77BA2E5A198829990040FCCD /* ProspectTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */; };
 		77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5156197F16420041ECCD /* MenuViewController.swift */; };
 		77BE517119804CE30041ECCD /* handshake1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516C19804CE30041ECCD /* handshake1.png */; };
@@ -100,6 +104,10 @@
 		775C2C4A198429CF00ADB786 /* Array+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Each.swift"; sourceTree = "<group>"; };
 		775C2C4C19855BF600ADB786 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
+		778BC81A19A3AC9E00FC2D73 /* UserSessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserSessionController.swift; sourceTree = "<group>"; };
+		778BC81F19A635E100FC2D73 /* SettingsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		778BC82119A691BA00FC2D73 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		778BC82419A7BEF000FC2D73 /* FacebookSessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSessionController.swift; sourceTree = "<group>"; };
 		77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProspectTablePresenter.swift; sourceTree = "<group>"; };
 		77BE5156197F16420041ECCD /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 		77BE516C19804CE30041ECCD /* handshake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handshake1.png; sourceTree = "<group>"; };
@@ -172,6 +180,7 @@
 		7728D4CC1966005100509ABB /* coldcall */ = {
 			isa = PBXGroup;
 			children = (
+				778BC81C19A3B11D00FC2D73 /* Controllers */,
 				775CC86619690A0700F6A0FA /* ViewControllers */,
 				775CC865196909DA00F6A0FA /* Helpers */,
 				770A566E196610C5008491C7 /* Models */,
@@ -239,6 +248,7 @@
 		775CC86619690A0700F6A0FA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				778BC82319A691BE00FC2D73 /* Settings */,
 				77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */,
 				77BE5156197F16420041ECCD /* MenuViewController.swift */,
 				7728D4D11966005200509ABB /* ColorViewController.swift */,
@@ -246,8 +256,26 @@
 				77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */,
 				775C2C46198322D400ADB786 /* NewCCTableViewController.swift */,
 				775C2C4819840D3C00ADB786 /* TableViewCells.swift */,
+				778BC81F19A635E100FC2D73 /* SettingsTableViewController.swift */,
 			);
 			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		778BC81C19A3B11D00FC2D73 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				778BC81A19A3AC9E00FC2D73 /* UserSessionController.swift */,
+				778BC82419A7BEF000FC2D73 /* FacebookSessionController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		778BC82319A691BE00FC2D73 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				778BC82119A691BA00FC2D73 /* ProfileViewController.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		8D439792137349D382252EDF /* Frameworks */ = {
@@ -380,12 +408,15 @@
 				7728D4D01966005200509ABB /* AppDelegate.swift in Sources */,
 				770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */,
 				770A566D19660F8D008491C7 /* Group.swift in Sources */,
+				778BC82219A691BA00FC2D73 /* ProfileViewController.swift in Sources */,
 				7728D4D21966005200509ABB /* ColorViewController.swift in Sources */,
 				7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */,
 				77BA2E5A198829990040FCCD /* ProspectTablePresenter.swift in Sources */,
+				778BC82519A7BEF000FC2D73 /* FacebookSessionController.swift in Sources */,
 				775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */,
 				770A56781966125E008491C7 /* Note.swift in Sources */,
 				775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */,
+				778BC81B19A3AC9E00FC2D73 /* UserSessionController.swift in Sources */,
 				775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */,
 				770A5674196611AB008491C7 /* Business.swift in Sources */,
 				770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */,
@@ -394,6 +425,7 @@
 				775C2C47198322D400ADB786 /* NewCCTableViewController.swift in Sources */,
 				77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */,
 				770A5670196610ED008491C7 /* User.swift in Sources */,
+				778BC82019A635E100FC2D73 /* SettingsTableViewController.swift in Sources */,
 				770A567219661178008491C7 /* ColdCall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

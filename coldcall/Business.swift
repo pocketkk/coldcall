@@ -9,6 +9,9 @@ class Business: NSManagedObject {
     @NSManaged var state: String?
     @NSManaged var phone: String?
     @NSManaged var url: String?
+    @NSManaged var follow_up_date: NSDate?
+    @NSManaged var interest: Int16
+    @NSManaged var sale_closed: Bool
     @NSManaged var coldcalls: NSSet
     @NSManaged var contacts: NSSet
     @NSManaged var notes: NSSet

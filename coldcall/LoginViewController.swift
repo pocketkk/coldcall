@@ -9,14 +9,10 @@
 import Foundation
 import UIKit
 
-protocol LoginViewControllerDelegate {
-    func closeFacebookLogin()
-}
-
 class LoginViewController: UIViewController, FBLoginViewDelegate {
 
     var fbl: FBLoginView = FBLoginView()
-    var delegate : LoginViewControllerDelegate?
+    let userSession = UserSessionController.sharedInstance
     @IBOutlet var loginView : FBLoginView!
     @IBOutlet var profilePictureView : FBProfilePictureView!
     @IBOutlet var userNameTxt : UILabel!
@@ -25,7 +21,6 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     @IBAction func logMeOut() {
         println("Close Window")
         self.presentingViewController.dismissViewControllerAnimated(true, completion: nil)
-        //delegate?.closeFacebookLogin()
     }
 
     override func viewDidLoad() {
@@ -43,23 +38,22 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     }
     
     func loginViewFetchedUserInfo(loginView: FBLoginView?, user: FBGraphUser) {
-        profilePictureView.profileID = user.objectID
-        userNameTxt.text = user.first_name + " " + user.last_name
+        let userSession : UserSessionController = UserSessionController.sharedInstance
         println(user)
-        var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()
-        userPrefs.setObject(user.first_name, forKey: "fName")
-        userPrefs.setObject(user.last_name, forKey: "lName")
-        userPrefs.setObject(user.objectID, forKey: "fbId")
-        var email: String = user.objectForKey("email") as String
-        userPrefs.setObject(email, forKey: "email")
-        println(userPrefs.objectForKey("fbId"))
-        println(userPrefs.objectForKey("email"))
+        profilePictureView.profileID = user.objectID
+        profilePictureView.layer.cornerRadius = profilePictureView.frame.size.width / 2
+        profilePictureView.clipsToBounds = true
+        profilePictureView.layer.borderWidth = 3.0
+        profilePictureView.layer.borderColor = UIColor.darkGrayColor().CGColor
+        userSession.logIn(user)
+        userNameTxt.text = userSession.userName()
     }
     
     func loginViewShowingLoggedOutUser(loginView: FBLoginView?) {
         profilePictureView.profileID = nil
         userNameTxt.text = ""
         logStatusTxt.text = "You are logged out!"
+        userSession.logOut()
     }
 
 }
