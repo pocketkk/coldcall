@@ -10,17 +10,11 @@ import UIKit
 import CoreData
 import MapKit
 
-class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLocationManagerDelegate, ProspectSearchControllerDelegate  {
+class NewCCTableViewController: UITableViewController, UITextFieldDelegate, ProspectSearchControllerDelegate, LocationSearchControllerDelegate  {
 
     @IBOutlet var revealButtonItem: UIBarButtonItem!
     var tablePresenter: TableViewPresenter!
-    var placemark: CLPlacemark?
-    var placemarks = [MKMapItem]()
-    var locationManager: CLLocationManager = CLLocationManager()
-    var locationReceived: Bool?
-    var currentLocation: CLLocation?
-    var tempLocation: CLLocation?
-    var geocoder = CLGeocoder()
+    var lsController : LocationSearchController!
     let userSession = UserSessionController.sharedInstance
     
     override func viewDidLoad() {
@@ -29,14 +23,9 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
         applyUIAttributesToNavigation()
         setupMenuView()
         tableView.allowsSelection = false
-        
-        CLLocationManager.locationServicesEnabled()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestAlwaysAuthorization()
-        println("Started Location Services")
-        println(locationManager)
-        
+        lsController = LocationSearchController(controller: self)
+        lsController.delegate = self
+
         FacebookSessionController.sharedInstance.findOrGetSession(self)
     }
     
@@ -68,6 +57,10 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
     }
     @IBAction func updateBusiness(sender: AnyObject) {
         tablePresenter.saveBusiness()
+    }
+    
+    @IBAction func updateLocation() {
+        lsController.start()
     }
 
     @IBAction func addNote(sender: AnyObject) {
@@ -131,23 +124,35 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
     /* ProspectSearchControllerDelegate protocol functions */
     
     func didFindBusinessFromSearch(business: Business) {
-        tablePresenter.resetCellQuantitiesDict()
-        userSession.currentBusiness = business
-        tablePresenter.displayBusiness()
+        reloadTableWithBusiness(business: business)
     }
     
     func didNotFindBusinessFromSearch() {
-        tablePresenter.resetCellQuantitiesDict()
-        userSession.currentBusiness = Business.newObject()
-        tablePresenter.newBusiness()
-        tablePresenter.displayBusiness()
-        Flash().message("NO BUSINESSES FOUND MATCHING SEARCH.", view: tableView)
+        reloadTableWithBusiness(newBusiness: true)
+        Flash().message("NO PROSPECTS FOUND MATCHING SEARCH.", view: tableView)
     }
     
     func didChooseNewBusinessFromSearch(){
+        reloadTableWithBusiness(newBusiness: true)
+    }
+    
+    /* LocationSearchControllerDelegate protocol functions */
+    
+    func didFindBusinessFromLocationSearch(business: Business) {
+        reloadTableWithBusiness(business: business)
+    }
+    
+    func didNotFindBusinessFromLocationSearch() {
+        reloadTableWithBusiness(newBusiness: true)
+        Flash().message("NO PROSPECT FOUND MATCHING SEARCH.", view: tableView)
+    }
+    
+    /* Location and Prospect Search display helper function */
+    
+    func reloadTableWithBusiness(business: Business = Business.newObject(), newBusiness: Bool = false) {
         tablePresenter.resetCellQuantitiesDict()
-        userSession.currentBusiness = Business.newObject()
-        tablePresenter.newBusiness()
+        userSession.currentBusiness = business
+        if newBusiness { tablePresenter.newBusiness() }
         tablePresenter.displayBusiness()
     }
     
@@ -160,93 +165,7 @@ class NewCCTableViewController: UITableViewController, UITextFieldDelegate, CLLo
         println("touches began")
         self.view.endEditing(true)
     }
-    
-    @IBAction func updateLocation() {
-        println("Started to look...")
-        locationManager.startUpdatingLocation()
-    }
-    
-    func locationManager(manager:CLLocationManager, didUpdateLocations locations:[AnyObject]) {
-        currentLocation = locations[0] as? CLLocation
-        locationManager.stopUpdatingLocation()
-        localSearch()
 
-    }
     
-    func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
-        locationReceived = false
-        println(error)
-        println("Error retrieving Location")
-    }
-    
-    func displayLocationSearchResults() {
-        var actionSheet =  UIAlertController(title: "Choose Business from Location", message: nil, preferredStyle: UIAlertControllerStyle.ActionSheet)
-        if placemarks.count >= 1 {
-            for pm in placemarks {
-                let p = pm as MKMapItem
-                actionSheet.addAction(UIAlertAction(title: p.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!)in
-                    println("You chose: \(p.name)")
-                    var placeMark = p.placemark as CLPlacemark
-                    let b : [AnyObject] = ProspectSearchController().searchForProspect(p.name, address: placeMark.subThoroughfare)
-                    if b.count == 0 {
-                        self.userSession.currentBusiness = Business.newObject() as Business
-                        self.userSession.currentBusiness!.name = p.name
-                        self.userSession.currentBusiness!.street = "\(placeMark.subThoroughfare) \(placeMark.thoroughfare)"
-                        self.userSession.currentBusiness!.city = placeMark.locality
-                        self.userSession.currentBusiness!.state = placeMark.administrativeArea
-                        self.userSession.currentBusiness!.phone = p.phoneNumber
-                        self.userSession.currentBusiness!.url = "\(p.url)"
-                        println(p.name)
-                    } else {
-                        self.userSession.currentBusiness = b[0] as? Business
-                    }
-                    self.tablePresenter.displayBusiness()
-                    }))
-            }
-            actionSheet.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: { (ACTION :UIAlertAction!)in
-                println("Cancelled")
-
-                }))
-            self.presentViewController(actionSheet, animated: true, completion: nil)
-        }
-
-    }
-    
-    func localSearch() {
-        
-        //There is a location bug where sometimes this code unwraps nil
-        
-        var request = MKLocalSearchRequest()
-        request.naturalLanguageQuery = "restaurant"
-        println("Looking for restuarants")
-        
-        let distance : Double = 1500.00
-        
-        var userRegion : MKCoordinateRegion = MKCoordinateRegionMakeWithDistance(currentLocation!.coordinate, distance, distance)
-        
-        request.region = userRegion
-        
-        var search:MKLocalSearch = MKLocalSearch(request: request)
-        UIApplication.sharedApplication().networkActivityIndicatorVisible = true
-        search.startWithCompletionHandler {
-            (response:MKLocalSearchResponse!, error:NSError!) in
-            println("Response: \(response)")
-            self.placemarks = []
-            if !error {
-                    for pm in response.mapItems {
-                        let p = pm as MKMapItem
-                        self.placemarks.append(p)
-                        println(p.name)
-                    }
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                self.displayLocationSearchResults()
-                
-            } else {
-                println("Error in local map search")
-                UIApplication.sharedApplication().networkActivityIndicatorVisible = false
-                //Do something in case of error
-            }
-        }
-    }
-    
+   
 }

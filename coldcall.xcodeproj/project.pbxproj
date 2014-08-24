@@ -44,6 +44,7 @@
 		778BC82219A691BA00FC2D73 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BC82119A691BA00FC2D73 /* ProfileViewController.swift */; };
 		778BC82519A7BEF000FC2D73 /* FacebookSessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 778BC82419A7BEF000FC2D73 /* FacebookSessionController.swift */; };
 		77AFEA8719A94C9800BA2345 /* Flash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFEA8619A94C9800BA2345 /* Flash.swift */; };
+		77AFEA8B19AA34D000BA2345 /* LocationSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77AFEA8A19AA34D000BA2345 /* LocationSearchController.swift */; };
 		77BA2E5A198829990040FCCD /* ProspectTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */; };
 		77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77BE5156197F16420041ECCD /* MenuViewController.swift */; };
 		77BE517119804CE30041ECCD /* handshake1.png in Resources */ = {isa = PBXBuildFile; fileRef = 77BE516C19804CE30041ECCD /* handshake1.png */; };
@@ -112,6 +113,7 @@
 		778BC82119A691BA00FC2D73 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		778BC82419A7BEF000FC2D73 /* FacebookSessionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FacebookSessionController.swift; sourceTree = "<group>"; };
 		77AFEA8619A94C9800BA2345 /* Flash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flash.swift; sourceTree = "<group>"; };
+		77AFEA8A19AA34D000BA2345 /* LocationSearchController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchController.swift; sourceTree = "<group>"; };
 		77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProspectTablePresenter.swift; sourceTree = "<group>"; };
 		77BE5156197F16420041ECCD /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuViewController.swift; path = ../MenuViewController.swift; sourceTree = "<group>"; };
 		77BE516C19804CE30041ECCD /* handshake1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = handshake1.png; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 				778BC81A19A3AC9E00FC2D73 /* UserSessionController.swift */,
 				778BC82419A7BEF000FC2D73 /* FacebookSessionController.swift */,
 				77D65FB519A8EA860029165C /* ProspectSearchController.swift */,
+				77AFEA8A19AA34D000BA2345 /* LocationSearchController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 			files = (
 				7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */,
 				7728D4D41966005200509ABB /* MapViewController.swift in Sources */,
+				77AFEA8B19AA34D000BA2345 /* LocationSearchController.swift in Sources */,
 				770A567619661217008491C7 /* Contact.swift in Sources */,
 				7728D4D01966005200509ABB /* AppDelegate.swift in Sources */,
 				770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */,
