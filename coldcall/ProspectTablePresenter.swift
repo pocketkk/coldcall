@@ -7,7 +7,6 @@ class TableViewPresenter : NSObject {
     var flashView : UIView?
     var contactsCount = 0
     var notesCount = 0
-    //var userSession.currentBusiness : Business?
     var contacts = [Contact]()
     var notes = [Note]()
     var cellCache : [UITableViewCell] = []
