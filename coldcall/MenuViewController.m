@@ -59,7 +59,7 @@
             cvc.color = c.textColor;
             cvc.text = c.text;
         }
-        if ( [cvc isKindOfClass:[NewCCTableViewController class]] )
+        if ( [cvc isKindOfClass:[ProspectTableViewController class]] )
         {
            // insert seque information for NewViewController Class
         }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="14A314h" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6205" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6198"/>
         <capability name="Constraints with attributes relative to the layout margin" minToolsVersion="6.0"/>
@@ -8,13 +8,34 @@
         <!--Cold Call-->
         <scene sceneID="d5O-gN-499">
             <objects>
-                <tableViewController id="z4b-Rx-5gJ" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ebc-5X-t91">
+                <tableViewController id="z4b-Rx-5gJ" customClass="ColdCallTableViewController" customModule="coldcall" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ebc-5X-t91">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="1_new_prospect_tools" id="gDS-HG-wZB">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="00_search_bar" id="Qzt-QE-o6Q" customClass="CCProspectSearchCell" customModule="coldcall" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qzt-QE-o6Q" id="XWx-nJ-ZYv">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔍 Search Prospects" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fom-pz-HmQ">
+                                            <rect key="frame" x="20" y="7" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
+                                        </textField>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="fom-pz-HmQ" secondAttribute="centerY" id="mAw-ZN-3ZJ"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="prospectSearchField" destination="fom-pz-HmQ" id="Gtc-AV-LBz"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="01_coldcall_tools" id="gDS-HG-wZB" customClass="CCToolbarCell" customModule="coldcall" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gDS-HG-wZB" id="qr2-uP-HTJ">
@@ -35,29 +56,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="00_search_bar" id="Qzt-QE-o6Q" customClass="SearchCell" customModule="coldcall" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Qzt-QE-o6Q" id="XWx-nJ-ZYv">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔍 Search Prospects" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fom-pz-HmQ">
-                                            <rect key="frame" x="20" y="7" width="280" height="30"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" returnKeyType="search"/>
-                                        </textField>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstAttribute="centerY" secondItem="fom-pz-HmQ" secondAttribute="centerY" id="mAw-ZN-3ZJ"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <outlet property="searchField" destination="fom-pz-HmQ" id="wdh-Vg-Il3"/>
+                                    <outlet property="saveButton" destination="XfI-Sn-8oc" id="pwJ-y2-JMh"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="0_prospect_header" rowHeight="25" id="9eB-KT-vbU">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="10_prospect_header" rowHeight="25" id="9eB-KT-vbU" customClass="CCProspectHeaderCell" customModule="coldcall" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9eB-KT-vbU" id="iHE-WA-dEC">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -75,7 +78,7 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KzI-Oc-2JP">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="15_prospect_info" rowHeight="65" id="KzI-Oc-2JP" customClass="CCProspectCell" customModule="coldcall" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KzI-Oc-2JP" id="3gr-vs-mK1">
@@ -100,8 +103,12 @@
                                         <constraint firstItem="8Gx-8g-3gB" firstAttribute="top" secondItem="kju-J9-ZEI" secondAttribute="bottom" constant="1" id="yGS-Kj-xyH"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="cityLabel" destination="8Gx-8g-3gB" id="gyI-g5-iq5"/>
+                                    <outlet property="nameLabel" destination="kju-J9-ZEI" id="gfk-bf-7t8"/>
+                                </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="3_contacts_header" rowHeight="25" id="uOv-ct-Rye" customClass="ContactsHeaderCell" customModule="coldcall" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="3_contacts_header" rowHeight="25" id="uOv-ct-Rye" customClass="CCContactsHeaderCell" customModule="coldcall" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uOv-ct-Rye" id="IHY-yQ-ysq">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -129,7 +136,64 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="5_contact" rowHeight="25" id="KgZ-ee-BEV" customClass="ContactCell" customModule="coldcall" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="4_new_contact" rowHeight="249" id="JiT-ok-R2i" customClass="CCNewContactCell" customModule="coldcall" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JiT-ok-R2i" id="bQ2-zd-bMb">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="gXP-Gl-jyx">
+                                            <rect key="frame" x="20" y="8" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="VVF-yz-6xy">
+                                            <rect key="frame" x="20" y="46" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="eFT-8Y-VHc">
+                                            <rect key="frame" x="20" y="84" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="JrM-cP-kHi">
+                                            <rect key="frame" x="20" y="122" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                                        </textField>
+                                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="53V-xo-q96">
+                                            <rect key="frame" x="20" y="160" width="280" height="30"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKo-py-wPd">
+                                            <rect key="frame" x="117" y="198" width="87" height="30"/>
+                                            <state key="normal" title="Add Contact">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="saveContact:" destination="26Y-rV-JUa" eventType="touchUpInside" id="uAU-ZR-p8C"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerX" secondItem="EKo-py-wPd" secondAttribute="centerX" constant="-0.5" id="WP3-qf-NFb"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="emailContactField" destination="JrM-cP-kHi" id="W03-9d-j7c"/>
+                                    <outlet property="emailField" destination="JrM-cP-kHi" id="ozB-dW-rcC"/>
+                                    <outlet property="firstNameField" destination="gXP-Gl-jyx" id="ek6-Xy-Or1"/>
+                                    <outlet property="fnameContactField" destination="gXP-Gl-jyx" id="1iI-NC-Zhy"/>
+                                    <outlet property="lastNameField" destination="VVF-yz-6xy" id="EC1-Wz-8zn"/>
+                                    <outlet property="lnameContactField" destination="VVF-yz-6xy" id="CNH-9s-bku"/>
+                                    <outlet property="phoneContactField" destination="53V-xo-q96" id="Jxv-Jk-e5i"/>
+                                    <outlet property="phoneField" destination="53V-xo-q96" id="eDH-l8-U0g"/>
+                                    <outlet property="titleContactField" destination="eFT-8Y-VHc" id="HdG-v1-CRi"/>
+                                    <outlet property="titleField" destination="eFT-8Y-VHc" id="SG1-XL-z3L"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="5_contact" rowHeight="25" id="KgZ-ee-BEV" customClass="CCContactCell" customModule="coldcall" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KgZ-ee-BEV" id="hnW-BR-MgK">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -146,10 +210,38 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="rkW-Dy-zYS" id="h09-Jn-aoR"/>
+                                    <outlet property="contactNameLabel" destination="rkW-Dy-zYS" id="ETj-6i-3wY"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="7_new_note" id="JiY-XM-0Jk" customClass="NewNoteCell" customModule="coldcall" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="6_notes_header" rowHeight="25" id="cYg-ao-IGB" customClass="CCNotesHeaderCell" customModule="coldcall" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cYg-ao-IGB" id="aLl-OH-zUS">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="contactAdd" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AuK-bz-D4h">
+                                            <rect key="frame" x="278" y="1" width="22" height="22"/>
+                                            <state key="normal">
+                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="addNote:" destination="26Y-rV-JUa" eventType="touchUpInside" id="wun-Mr-Ltu"/>
+                                            </connections>
+                                        </button>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="NOTES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn7-Yp-o5S">
+                                            <rect key="frame" x="20" y="2" width="170" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="sn7-Yp-o5S" secondAttribute="centerY" id="EeG-0j-lGF"/>
+                                        <constraint firstAttribute="centerY" secondItem="AuK-bz-D4h" secondAttribute="centerY" constant="0.5" id="eVX-2E-DBE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="7_new_note" id="JiY-XM-0Jk" customClass="CCNoteEntryCell" customModule="coldcall" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="JiY-XM-0Jk" id="TEa-LW-AlF">
@@ -163,7 +255,37 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="noteField" destination="SYL-SU-Yw7" id="RIs-Di-yyk"/>
+                                    <outlet property="newNoteField" destination="SYL-SU-Yw7" id="GaT-yy-KeB"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="8_note" rowHeight="25" id="M2X-v3-rO2" customClass="CCNoteCell" customModule="coldcall" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M2X-v3-rO2" id="Dqh-w2-a4Q">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="This is the note" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jay-lK-iTG">
+                                            <rect key="frame" x="86" y="5" width="221" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="1/12/14" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGS-z3-rjw">
+                                            <rect key="frame" x="20" y="5" width="58" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <color key="textColor" red="0.29803922770000002" green="0.29803922770000002" blue="0.29803922770000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="jay-lK-iTG" firstAttribute="baseline" secondItem="dGS-z3-rjw" secondAttribute="baseline" id="4TG-s9-Pva"/>
+                                        <constraint firstAttribute="centerY" secondItem="dGS-z3-rjw" secondAttribute="centerY" constant="-3" id="lVt-6k-rTQ"/>
+                                        <constraint firstItem="jay-lK-iTG" firstAttribute="leading" secondItem="dGS-z3-rjw" secondAttribute="trailing" constant="3" id="zki-qU-CkE"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="dGS-z3-rjw" id="3jf-Vc-zIP"/>
+                                    <outlet property="noteContentLabel" destination="jay-lK-iTG" id="6oT-kX-eGe"/>
+                                    <outlet property="noteDateLabel" destination="dGS-z3-rjw" id="H5S-s4-3rq"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -466,10 +588,10 @@
             </objects>
             <point key="canvasLocation" x="1736" y="752"/>
         </scene>
-        <!--NewCC Table View Controller-->
+        <!--Prospect Table View Controller-->
         <scene sceneID="HpO-hd-sGE">
             <objects>
-                <tableViewController id="26Y-rV-JUa" customClass="NewCCTableViewController" customModule="coldcall" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="26Y-rV-JUa" customClass="ProspectTableViewController" customModule="coldcall" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1aZ-dF-axA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="1200"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

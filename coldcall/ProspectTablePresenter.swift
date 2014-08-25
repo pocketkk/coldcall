@@ -1,10 +1,10 @@
 import UIKit
 import CoreData
 
-class TableViewPresenter : NSObject {
+class ProspectTableViewPresenter : NSObject {
     var tableView : UITableView!
     var tfDelegate : UITextFieldDelegate!
-    var flashView : UIView?
+    var flashView : UIView? //i think this can be deleted.  will test
     var contactsCount = 0
     var notesCount = 0
     var contacts = [Contact]()
@@ -12,6 +12,7 @@ class TableViewPresenter : NSObject {
     var cellCache : [UITableViewCell] = []
     var heightsCache : [CGFloat] = []
     var coldcall : ColdCall?
+    
     var searchField : UITextField!
     var nameField : UITextField!
     var addressField : UITextField!

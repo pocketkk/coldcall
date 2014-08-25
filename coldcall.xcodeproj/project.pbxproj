@@ -34,8 +34,10 @@
 		7728D4F11966045900509ABB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7728D4F01966045900509ABB /* CoreLocation.framework */; };
 		7728D4F41966056600509ABB /* coldcall.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F21966056600509ABB /* coldcall.xcdatamodeld */; };
 		7728D4F919660DFD00509ABB /* CoreDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7728D4F819660DFD00509ABB /* CoreDataHelper.swift */; };
-		775C2C47198322D400ADB786 /* NewCCTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C46198322D400ADB786 /* NewCCTableViewController.swift */; };
-		775C2C4919840D3C00ADB786 /* TableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4819840D3C00ADB786 /* TableViewCells.swift */; };
+		7730210119AAA383004ED88E /* ColdCallTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7730210019AAA383004ED88E /* ColdCallTableViewCells.swift */; };
+		7730210519AAAB7B004ED88E /* ColdCallTablePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7730210419AAAB7B004ED88E /* ColdCallTablePresenter.swift */; };
+		775C2C47198322D400ADB786 /* ProspectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C46198322D400ADB786 /* ProspectTableViewController.swift */; };
+		775C2C4919840D3C00ADB786 /* ProspectTableViewCells.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4819840D3C00ADB786 /* ProspectTableViewCells.swift */; };
 		775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4A198429CF00ADB786 /* Array+Each.swift */; };
 		775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775C2C4C19855BF600ADB786 /* DateHelper.swift */; };
 		775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 775CC8631968E76B00F6A0FA /* SeedData.swift */; };
@@ -103,8 +105,10 @@
 		7728D4F31966056600509ABB /* coldcall.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = coldcall.xcdatamodel; sourceTree = "<group>"; };
 		7728D4F519660C4400509ABB /* coldcall-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "coldcall-Bridging-Header.h"; sourceTree = "<group>"; };
 		7728D4F819660DFD00509ABB /* CoreDataHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataHelper.swift; sourceTree = "<group>"; };
-		775C2C46198322D400ADB786 /* NewCCTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewCCTableViewController.swift; sourceTree = "<group>"; };
-		775C2C4819840D3C00ADB786 /* TableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCells.swift; sourceTree = "<group>"; };
+		7730210019AAA383004ED88E /* ColdCallTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdCallTableViewCells.swift; sourceTree = "<group>"; };
+		7730210419AAAB7B004ED88E /* ColdCallTablePresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColdCallTablePresenter.swift; sourceTree = "<group>"; };
+		775C2C46198322D400ADB786 /* ProspectTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProspectTableViewController.swift; sourceTree = "<group>"; };
+		775C2C4819840D3C00ADB786 /* ProspectTableViewCells.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProspectTableViewCells.swift; sourceTree = "<group>"; };
 		775C2C4A198429CF00ADB786 /* Array+Each.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Array+Each.swift"; sourceTree = "<group>"; };
 		775C2C4C19855BF600ADB786 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		775CC8631968E76B00F6A0FA /* SeedData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeedData.swift; sourceTree = "<group>"; };
@@ -242,6 +246,26 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		7730210219AAAAE9004ED88E /* Prospect */ = {
+			isa = PBXGroup;
+			children = (
+				775C2C46198322D400ADB786 /* ProspectTableViewController.swift */,
+				77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */,
+				775C2C4819840D3C00ADB786 /* ProspectTableViewCells.swift */,
+			);
+			name = Prospect;
+			sourceTree = "<group>";
+		};
+		7730210319AAAB1B004ED88E /* ColdCalls */ = {
+			isa = PBXGroup;
+			children = (
+				77D65FB319A8E9F20029165C /* ColdCallTableViewController.swift */,
+				7730210419AAAB7B004ED88E /* ColdCallTablePresenter.swift */,
+				7730210019AAA383004ED88E /* ColdCallTableViewCells.swift */,
+			);
+			name = ColdCalls;
+			sourceTree = "<group>";
+		};
 		775CC865196909DA00F6A0FA /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,16 +281,13 @@
 		775CC86619690A0700F6A0FA /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				778BC82319A691BE00FC2D73 /* Settings */,
-				77BA2E59198829990040FCCD /* ProspectTablePresenter.swift */,
 				77BE5156197F16420041ECCD /* MenuViewController.swift */,
+				77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */,
+				7730210319AAAB1B004ED88E /* ColdCalls */,
+				7730210219AAAAE9004ED88E /* Prospect */,
+				778BC82319A691BE00FC2D73 /* Settings */,
 				7728D4D11966005200509ABB /* ColorViewController.swift */,
 				7728D4D31966005200509ABB /* MapViewController.swift */,
-				77CD6A09196DFF8E00A50D33 /* LoginViewController.swift */,
-				775C2C46198322D400ADB786 /* NewCCTableViewController.swift */,
-				775C2C4819840D3C00ADB786 /* TableViewCells.swift */,
-				778BC81F19A635E100FC2D73 /* SettingsTableViewController.swift */,
-				77D65FB319A8E9F20029165C /* ColdCallTableViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -285,6 +306,7 @@
 		778BC82319A691BE00FC2D73 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				778BC81F19A635E100FC2D73 /* SettingsTableViewController.swift */,
 				778BC82119A691BA00FC2D73 /* ProfileViewController.swift */,
 			);
 			name = Settings;
@@ -429,18 +451,20 @@
 				77D65FB419A8E9F20029165C /* ColdCallTableViewController.swift in Sources */,
 				775C2C4B198429CF00ADB786 /* Array+Each.swift in Sources */,
 				770A56781966125E008491C7 /* Note.swift in Sources */,
+				7730210119AAA383004ED88E /* ColdCallTableViewCells.swift in Sources */,
 				775CC8641968E76B00F6A0FA /* SeedData.swift in Sources */,
 				778BC81B19A3AC9E00FC2D73 /* UserSessionController.swift in Sources */,
 				775C2C4D19855BF600ADB786 /* DateHelper.swift in Sources */,
 				770A5674196611AB008491C7 /* Business.swift in Sources */,
 				770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */,
-				775C2C4919840D3C00ADB786 /* TableViewCells.swift in Sources */,
+				775C2C4919840D3C00ADB786 /* ProspectTableViewCells.swift in Sources */,
 				77AFEA8719A94C9800BA2345 /* Flash.swift in Sources */,
 				77CD6A0A196DFF8E00A50D33 /* LoginViewController.swift in Sources */,
-				775C2C47198322D400ADB786 /* NewCCTableViewController.swift in Sources */,
+				775C2C47198322D400ADB786 /* ProspectTableViewController.swift in Sources */,
 				77BE5157197F16420041ECCD /* MenuViewController.swift in Sources */,
 				770A5670196610ED008491C7 /* User.swift in Sources */,
 				778BC82019A635E100FC2D73 /* SettingsTableViewController.swift in Sources */,
+				7730210519AAAB7B004ED88E /* ColdCallTablePresenter.swift in Sources */,
 				770A567219661178008491C7 /* ColdCall.swift in Sources */,
 				77D65FB619A8EA860029165C /* ProspectSearchController.swift in Sources */,
 			);

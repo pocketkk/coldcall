@@ -10,16 +10,16 @@ import UIKit
 import CoreData
 import MapKit
 
-class NewCCTableViewController: UITableViewController, UITextFieldDelegate, ProspectSearchControllerDelegate, LocationSearchControllerDelegate  {
+class ProspectTableViewController: UITableViewController, UITextFieldDelegate, ProspectSearchControllerDelegate, LocationSearchControllerDelegate  {
 
     @IBOutlet var revealButtonItem: UIBarButtonItem!
-    var tablePresenter: TableViewPresenter!
+    var tablePresenter: ProspectTableViewPresenter!
     var lsController : LocationSearchController!
     let userSession = UserSessionController.sharedInstance
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablePresenter = TableViewPresenter(table: tableView, textFieldDelegate: self)
+        tablePresenter = ProspectTableViewPresenter(table: tableView, textFieldDelegate: self)
         applyUIAttributesToNavigation()
         setupMenuView()
         tableView.allowsSelection = false
