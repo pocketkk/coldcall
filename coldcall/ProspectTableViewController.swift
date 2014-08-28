@@ -25,7 +25,6 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
         tableView.allowsSelection = false
         lsController = LocationSearchController(controller: self)
         lsController.delegate = self
-
         FacebookSessionController.sharedInstance.findOrGetSession(self)
     }
     
@@ -34,9 +33,22 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
         let green : CGFloat = 212/255
         let blue : CGFloat = 86/255
         let navBarColor : UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
-        let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
+//        let shadow = NSShadow()
+//        shadow.shadowOffset = CGSizeMake(0.0, 1.0)
+//        shadow.shadowColor = UIColor.whiteColor()
+        let titleDict: NSDictionary = [
+            NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)
+        ]
+        let barTextDict: NSDictionary = [
+            NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+            //NSShadowAttributeName: shadow,
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 17)
+        ]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barTextDict, forState: UIControlState.Normal)
         self.navigationController.navigationBar.titleTextAttributes = titleDict
         self.navigationController.navigationBar.barTintColor = navBarColor
+        self.navigationController.navigationBar.translucent = true
     }
     
     func setupMenuView() {
@@ -80,6 +92,7 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
     }
     
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+        println("whhy is this nil? \(tablePresenter)")
         return tablePresenter.totalCells()
     }
     
@@ -165,6 +178,12 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
         println("touches began")
         self.view.endEditing(true)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+        //tablePresenter.prepareBusinessForSegue()
+        
+    }
+
 
     
    

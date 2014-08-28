@@ -34,7 +34,7 @@ class ProspectTableViewPresenter : NSObject {
     let cellHeightsArr : [CGFloat] = [35.0,     // search bar
                                       35.0,     // tools header
                                       35.0,     // tools header
-                                      25.0,     // prospect header
+                                      35.0,     // tools header
                                       240.0,    // new prospect
                                       35.0,     // contacts header
                                       250.0,    // new contact
@@ -48,11 +48,13 @@ class ProspectTableViewPresenter : NSObject {
     
     init(table: UITableView, textFieldDelegate: UITextFieldDelegate){
         super.init()
+        println(self)
         tableView = table
         tfDelegate = textFieldDelegate
-        userSession.currentBusiness = Business.newObject() as Business
-        createCellCache()
+        prepareBusiness()
     }
+    
+    deinit{ println("deallocating prospect table presenter") }
     
     func resetCellQuantitiesDict() {
         cellQuantitiesDict = ["00_search_bar": 0, "1_new_prospect_tools": 0, "1_existing_prospect_tools": 1, "0_prospect_header": 1, "2_new_prospect": 1, "3_contacts_header": 1, "4_new_contact": 0, "5_contact": 0, "6_notes_header": 1, "7_new_note": 0, "8_note": 0]
@@ -61,8 +63,7 @@ class ProspectTableViewPresenter : NSObject {
     }
     
     func saveBusiness(){
-        let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
-        let context = appDel.cdh.managedObjectContext
+        let context = (UIApplication.sharedApplication().delegate as AppDelegate).cdh.managedObjectContext
         if fieldsValidate() {
             updateBusinessModel()
             context.save(nil)
@@ -74,6 +75,20 @@ class ProspectTableViewPresenter : NSObject {
             Flash().message("All required fields must be completed.", view: tableView)
         }
     }
+    
+//    func prepareBusinessForSegue(){
+//        let context = (UIApplication.sharedApplication().delegate as AppDelegate).cdh.managedObjectContext
+//        if fieldsValidate() {
+//            updateBusinessModel()
+//            if Business.isUnique(userSession.currentBusiness!) {
+//                context.save(nil)
+//            } else {
+//                println("duplicate business.  merging...")
+//                userSession.currentBusiness = Business.updateOriginalFromDuplicate(userSession.currentBusiness!)
+//                println(userSession.currentBusiness?.name)
+//            }
+//        }
+//    }
     
     func updateBusinessModel(){
         userSession.currentBusiness!.name = nameField.text
@@ -91,7 +106,7 @@ class ProspectTableViewPresenter : NSObject {
     }
 
     func fieldsValidate() -> Bool {
-        if nameField.text.isEmpty {
+        if nameField.text.isEmpty && addressField.text.isEmpty && cityField.text.isEmpty{
             return false
         } else {
             return true
@@ -240,7 +255,7 @@ class ProspectTableViewPresenter : NSObject {
         tableView.reloadData()
     }
     
-    func displayBusiness(){
+    func prepareBusiness(){
         contacts = []
         notes = []
         contactsCount = 0
@@ -269,35 +284,51 @@ class ProspectTableViewPresenter : NSObject {
         println(userSession.currentBusiness?)
         println(userSession.currentBusiness?.name)
         if (userSession.currentBusiness?.name) == nil {
+            println("1")
             nameField!.text = ""
         } else {
+            println("2")
             nameField!.text = userSession.currentBusiness?.name
         }
         if userSession.currentBusiness?.street == nil {
+            println("1")
             addressField!.text = ""
         } else {
+            println("2")
             addressField!.text = userSession.currentBusiness?.street
         }
         if userSession.currentBusiness?.city == nil {
+            println("1")
             cityField!.text = ""
         } else {
+            println("2")
             cityField!.text = userSession.currentBusiness?.city
         }
         if userSession.currentBusiness?.state == nil {
+            println("1")
             stateField!.text = ""
         } else {
+            println("2")
             stateField!.text = userSession.currentBusiness?.state
         }
         if userSession.currentBusiness?.phone == nil {
+            println("1")
             phoneField!.text = ""
         } else {
+            println("2")
             phoneField!.text = userSession.currentBusiness?.phone
         }
         if userSession.currentBusiness?.url == nil {
+            println("1")
             urlField!.text = ""
         } else {
+            println("2")
             urlField!.text = userSession.currentBusiness?.url
         }
+    }
+    
+    func displayBusiness(){
+        prepareBusiness()
         tableView.reloadData()
     }
 }

@@ -68,11 +68,11 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
     }
 
     override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 6
     }
     
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cellIdentifiers = ["title", "coldcalls", "contacts", "map", "settings"]
+        let cellIdentifiers = ["title", "coldcalls", "prospects", "contacts", "map", "settings"]
         var cellIdentifier = "Cell"
         cellIdentifier = cellIdentifiers[indexPath.row]
         
@@ -92,8 +92,9 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
             imageView.layer.borderColor = UIColor.darkGrayColor().CGColor
 
             var nameLabel = UILabel(frame: CGRectMake(72,12,200,20))
-            nameLabel.text = userSession.userName()
+            nameLabel.text = userSession.userName().uppercaseString
             nameLabel.textColor = UIColor.darkGrayColor()
+            nameLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 20)
             nameLabel.center.y = imageView.center.y
             cell?.addSubview(imageView)
             cell?.addSubview(nameLabel)

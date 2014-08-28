@@ -48,3 +48,11 @@ class CCNoteEntryCell : UITableViewCell {
     @IBOutlet weak var newNoteField: UITextField!
     
 }
+
+class CCOutcomeHeaderCell : UITableViewCell {
+    
+}
+
+class CCOutcomeCell : UITableViewCell {
+    
+}

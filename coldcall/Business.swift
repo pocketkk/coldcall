@@ -23,6 +23,57 @@ class Business: NSManagedObject {
         return Business(entity: ent, insertIntoManagedObjectContext: context)
     }
     
+    class func isUnique(business: Business) -> Bool {
+        let context = (UIApplication.sharedApplication().delegate as AppDelegate).cdh.managedObjectContext
+        var request = NSFetchRequest(entityName: "Businesses")
+        let name = business.name
+        let street = business.street
+
+        request.predicate = NSPredicate(format: "name contains [c] %@ && street contains [c] %@", name!, street!)
+        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)
+        return businesses.count == 0
+ 
+    }
+    
+//    class func updateOriginalFromDuplicate(duplicate: Business) -> Business {
+//        let context = (UIApplication.sharedApplication().delegate as AppDelegate).cdh.managedObjectContext
+//        var request = NSFetchRequest(entityName: "Businesses")
+//        let name = duplicate.name
+//        let street = duplicate.street
+//        var original : Business?
+//        
+//        request.predicate = NSPredicate(format: "name contains [c] %@ && street contains [c] %@", name!, street!)
+//        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)
+//        if businesses.count == 1 {
+//            original = businesses[0] as? Business
+//            mergeBusinessesLeft(original!, right: duplicate)
+//        }
+//        context.deleteObject(duplicate)
+//        context.save(nil)
+//        return original!
+//    }
+//    
+//    class func mergeBusinessesLeft(left: Business, right: Business) {
+//        let context = (UIApplication.sharedApplication().delegate as AppDelegate).cdh.managedObjectContext
+//
+//        if left.city != right.city {
+//            left.city = right.city
+//        }
+//        if left.state != right.state {
+//            left.state = right.state
+//        }
+//        if left.phone != right.phone {
+//            left.phone = right.phone
+//        }
+//        if left.url != right.url {
+//            left.url = right.url
+//        }
+//    }
+//    
+//    class func fieldsEqual(left: String, right: String) -> Bool {
+//        return left == right
+//    }
+    
     func addColdCall(cc: ColdCall) -> Bool{
         if !coldcalls.containsObject(cc) {
             coldcalls = coldcalls.setByAddingObject(cc)

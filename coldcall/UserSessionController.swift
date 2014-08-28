@@ -26,7 +26,9 @@ class UserSessionController {
     private var userImageLarge : UIImage?
     
     var delegate : UserSessionControllerDelegate?
-    var currentBusiness : Business?
+    var currentBusiness : Business? = Business.newObject()
+    
+    deinit { println("Deallocated UserSession") }
     
     func checkLoginState() {
         var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()

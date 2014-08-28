@@ -8,13 +8,18 @@
 
 import UIKit
 
-class ColdCallTableViewController: UITableViewController {
+class ColdCallTableViewController: UITableViewController, UITextFieldDelegate {
 
     var tablePresenter : ColdCallTablePresenter!
+    @IBOutlet var revealButtonItem: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tablePresenter = ColdCallTablePresenter(tableView: tableView)
+        tablePresenter = ColdCallTablePresenter(tableView: tableView, textFieldDelegate: self)
+        tableView.allowsSelection = false
+        setupMenuView()
+        applyUIAttributesToNavigation()
+        tablePresenter.prepareBusinessForDisplay()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -27,6 +32,37 @@ class ColdCallTableViewController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func setupMenuView() {
+        self.revealButtonItem.target = self.revealViewController()
+        self.revealButtonItem.action = "revealToggle:"
+        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+    }
+    
+    func applyUIAttributesToNavigation(){
+        let red : CGFloat = 150/255
+        let green : CGFloat = 212/255
+        let blue : CGFloat = 86/255
+        let navBarColor : UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+        //        let shadow = NSShadow()
+        //        shadow.shadowOffset = CGSizeMake(0.0, 1.0)
+        //        shadow.shadowColor = UIColor.whiteColor()
+        let titleDict: NSDictionary = [
+            NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 20)
+        ]
+        let barTextDict: NSDictionary = [
+            NSForegroundColorAttributeName: UIColor.darkGrayColor(),
+            //NSShadowAttributeName: shadow,
+            NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 17)
+        ]
+        UIBarButtonItem.appearance().setTitleTextAttributes(barTextDict, forState: UIControlState.Normal)
+        self.navigationController.navigationBar.titleTextAttributes = titleDict
+        self.navigationController.navigationBar.barTintColor = navBarColor
+        self.navigationController.navigationBar.translucent = true
+    }
+
+    
 
     // MARK: - Table view data source
     
@@ -49,6 +85,36 @@ class ColdCallTableViewController: UITableViewController {
 
     override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
         return tablePresenter.cellCache[indexPath.row]
+    }
+    
+    func textFieldShouldReturn(textField: UITextField!) -> Bool {
+        textField.resignFirstResponder()
+        println("should return")
+        return true
+    }
+    
+    func textFieldDidEndEditing(textField: UITextField!) {
+        //if new note field this should create a new note for business, add to business object and update notes
+//        let appDel : AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
+//        let context = appDel.cdh.managedObjectContext
+//        println("did end editing")
+//        if textField.tag == 1 {
+//            let n = Note.newObject()
+//            n.content = textField.text
+//            userSession.currentBusiness?.addNote(n)
+//            //save context
+//            context.save(nil)
+//            textField.text = ""
+//            tablePresenter.cellQuantitiesDict["7_new_note"] = 0
+//            tablePresenter.displayBusiness()
+//        }
+//        if textField.tag == 2 || textField.tag == 4 {
+//            let psController = ProspectSearchController()
+//            psController.delegate = self
+//            psController.loadProspect(textField.text, controller: self)
+//            textField.text = ""
+//        }
+//        println(textField.tag)
     }
 
     /*
