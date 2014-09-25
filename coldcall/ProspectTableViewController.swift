@@ -7,8 +7,8 @@
 //
 
 import UIKit
-import CoreData
-import MapKit
+//import CoreData
+//import MapKit
 
 class ProspectTableViewController: UITableViewController, UITextFieldDelegate, ProspectSearchControllerDelegate, LocationSearchControllerDelegate  {
 
