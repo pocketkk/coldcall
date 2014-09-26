@@ -80,7 +80,7 @@ class LocationSearchController: NSObject, CLLocationManagerDelegate {
             (response:MKLocalSearchResponse!, error:NSError!) in
             println("Response: \(response)")
             self.placemarks = []
-            if !error {
+            if !(error != nil) {
                 for pm in response.mapItems {
                     let p = pm as MKMapItem
                     self.placemarks.append(p)

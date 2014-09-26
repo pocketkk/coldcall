@@ -10,14 +10,14 @@ class Date {
         
         var gregorian = NSCalendar(identifier:NSGregorianCalendar)
         var date = gregorian.dateFromComponents(c)
-        return date
+        return date!
     }
     
     class func parse(dateStr:String, format:String="yyyy-MM-dd") -> NSDate {
         var dateFmt = NSDateFormatter()
         dateFmt.timeZone = NSTimeZone.defaultTimeZone()
         dateFmt.dateFormat = format
-        return dateFmt.dateFromString(dateStr)
+        return dateFmt.dateFromString(dateStr)!
     }
     
     class func beginningOfDay(date:NSDate) ->NSDate {
@@ -27,7 +27,7 @@ class Date {
         dateFormat.timeZone = NSTimeZone.defaultTimeZone()
         dateFormat.dateFormat = "yyyy-MM-dd"
         let dateStr = dateFormat.stringFromDate(date)
-        return dateFormat.dateFromString(dateStr)
+        return dateFormat.dateFromString(dateStr)!
     }
     
     class func endOfDay(date:NSDate) -> NSDate {
@@ -36,7 +36,7 @@ class Date {
         components.hour=23
         components.minute=59
         let endofDate = calendar .dateFromComponents(components)
-        return endofDate
+        return endofDate!
     }
     
     class func toString(date:NSDate) -> String {

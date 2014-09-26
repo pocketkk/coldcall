@@ -19,11 +19,11 @@ class SettingsTableViewController: UITableViewController {
         let blue : CGFloat = 86/255
         let navBarColor : UIColor = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
         let titleDict: NSDictionary = [NSForegroundColorAttributeName: UIColor.darkGrayColor()]
-        self.navigationController.navigationBar.titleTextAttributes = titleDict
-        self.navigationController.navigationBar.barTintColor = navBarColor
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
+        self.navigationController?.navigationBar.barTintColor = navBarColor
         self.revealButtonItem.target = self.revealViewController()
         self.revealButtonItem.action = "revealToggle:"
-        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,23 +33,23 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         // #warning Potentially incomplete method implementation.
         // Return the number of sections.
         return 1
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
         return 3
     }
 
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 44.0
     }
 
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cellsToCreate = ["profile", "location", "contact_us"]
         let cellIdentifier = cellsToCreate[indexPath.row]

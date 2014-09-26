@@ -16,7 +16,7 @@ class ColorViewController: UIViewController {
     var color: UIColor = UIColor.brownColor()
     var text: String = "Text"
 
-    required init(coder aDecoder: NSCoder!)
+    required init(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
     }
@@ -25,7 +25,7 @@ class ColorViewController: UIViewController {
         super.viewDidLoad()
         self.revealButtonItem.target = self.revealViewController()
         self.revealButtonItem.action = "revealToggle:"
-        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        //self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
         SeedData.seedAll(10)
     }
 

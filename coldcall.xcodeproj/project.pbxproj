@@ -16,7 +16,6 @@
 		770FF07319699F4F0036D2FB /* list26.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF07219699F4F0036D2FB /* list26.png */; };
 		770FF0801969F6EE0036D2FB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */; };
 		770FF08B1969F9690036D2FB /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0841969F9690036D2FB /* MainStoryboard.storyboard */; };
-		770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0861969F9690036D2FB /* MenuViewController.m */; };
 		770FF0911969F9920036D2FB /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 770FF0901969F9920036D2FB /* SWRevealViewController.m */; };
 		770FF0971969F9BB0036D2FB /* reveal-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0921969F9BB0036D2FB /* reveal-icon@2x.png */; };
 		770FF0981969F9BB0036D2FB /* reveal-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 770FF0931969F9BB0036D2FB /* reveal-icon.png */; };
@@ -81,8 +80,6 @@
 		770FF07219699F4F0036D2FB /* list26.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = list26.png; sourceTree = "<group>"; };
 		770FF07F1969F6EE0036D2FB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		770FF0841969F9690036D2FB /* MainStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MainStoryboard.storyboard; sourceTree = "<group>"; };
-		770FF0851969F9690036D2FB /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
-		770FF0861969F9690036D2FB /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		770FF08F1969F9920036D2FB /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
 		770FF0901969F9920036D2FB /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
 		770FF0921969F9BB0036D2FB /* reveal-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reveal-icon@2x.png"; sourceTree = "<group>"; };
@@ -200,8 +197,6 @@
 				770A566E196610C5008491C7 /* Models */,
 				7728D4CF1966005200509ABB /* AppDelegate.swift */,
 				770FF0841969F9690036D2FB /* MainStoryboard.storyboard */,
-				770FF0851969F9690036D2FB /* MenuViewController.h */,
-				770FF0861969F9690036D2FB /* MenuViewController.m */,
 				770FF08F1969F9920036D2FB /* SWRevealViewController.h */,
 				770FF0901969F9920036D2FB /* SWRevealViewController.m */,
 				7728D4CD1966005100509ABB /* Supporting Files */,
@@ -445,7 +440,6 @@
 				77AFEA8B19AA34D000BA2345 /* LocationSearchController.swift in Sources */,
 				770A567619661217008491C7 /* Contact.swift in Sources */,
 				7728D4D01966005200509ABB /* AppDelegate.swift in Sources */,
-				770FF08C1969F9690036D2FB /* MenuViewController.m in Sources */,
 				770A566D19660F8D008491C7 /* Group.swift in Sources */,
 				778BC82219A691BA00FC2D73 /* ProfileViewController.swift in Sources */,
 				7728D4D21966005200509ABB /* ColorViewController.swift in Sources */,

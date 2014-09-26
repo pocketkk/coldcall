@@ -20,7 +20,7 @@ class LoginViewController: UIViewController, FBLoginViewDelegate {
     
     @IBAction func logMeOut() {
         println("Close Window")
-        self.presentingViewController.dismissViewControllerAnimated(true, completion: nil)
+        self.presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
 
     override func viewDidLoad() {

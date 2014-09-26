@@ -67,8 +67,8 @@ class UserSessionController {
         let userSession : UserSessionController = UserSessionController.sharedInstance
         if userSession.isUserLoggedIn() {
             var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            var userFirstName = userPrefs.stringForKey("fName")
-            var userLastName = userPrefs.stringForKey("lName")
+            var userFirstName = userPrefs.stringForKey("fName")!
+            var userLastName = userPrefs.stringForKey("lName")!
             println("user is logged in")
             return "\(userFirstName) \(userLastName)"
         } else {
@@ -80,7 +80,7 @@ class UserSessionController {
         let userSession : UserSessionController = UserSessionController.sharedInstance
         if userSession.isUserLoggedIn() {
             var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            return userPrefs.stringForKey("fName")
+            return userPrefs.stringForKey("fName")!
         } else {
             return "First Name"
         }
@@ -90,7 +90,7 @@ class UserSessionController {
         let userSession : UserSessionController = UserSessionController.sharedInstance
         if userSession.isUserLoggedIn() {
             var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()
-            return userPrefs.stringForKey("lName")
+            return userPrefs.stringForKey("lName")!
         } else {
             return "Last Name"
         }
@@ -114,12 +114,18 @@ class UserSessionController {
     }
     
     func retrieveImageFromFacebook(size: String) -> UIImage {
+        
+        //This can be buggy if response is slow, causing image to return nil
+        
         var userPrefs : NSUserDefaults = NSUserDefaults.standardUserDefaults()
         let userFBID = userPrefs.stringForKey("fbId")
-        let userImageURL = "https://graph.facebook.com/\(userFBID)/picture?type=\(size)";
-        let url = NSURL.URLWithString(userImageURL);
-        let imageData = NSData(contentsOfURL: url);
-        let image = UIImage(data: imageData);
+        println(userFBID)
+        let userImageURL = "https://graph.facebook.com/\(userFBID!)/picture?type=\(size)"
+        let url = NSURL.URLWithString(userImageURL)
+        println(url)
+        let imageData = NSData(contentsOfURL: url)
+        println(imageData)
+        let image = UIImage(data: imageData)
         return image
     }
     

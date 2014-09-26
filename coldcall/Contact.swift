@@ -15,7 +15,7 @@ class Contact: NSManagedObject {
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         let ent = NSEntityDescription.entityForName("Contacts", inManagedObjectContext: context)
-        return Contact(entity: ent, insertIntoManagedObjectContext: context)
+        return Contact(entity: ent!, insertIntoManagedObjectContext: context)
     }
     
     func addNote(cc: Note) -> Bool{

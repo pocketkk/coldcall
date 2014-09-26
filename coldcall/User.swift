@@ -12,7 +12,7 @@ class User: NSManagedObject {
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         let ent = NSEntityDescription.entityForName("Users", inManagedObjectContext: context)
-        return User(entity: ent, insertIntoManagedObjectContext: context)
+        return User(entity: ent!, insertIntoManagedObjectContext: context)
     }
     
     func addColdCalls(coldcallsArray: NSArray) -> Bool {

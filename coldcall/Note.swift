@@ -13,7 +13,7 @@ class Note: NSManagedObject {
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         let ent = NSEntityDescription.entityForName("Notes", inManagedObjectContext: context)
-        var n = Note(entity: ent, insertIntoManagedObjectContext: context)
+        var n = Note(entity: ent!, insertIntoManagedObjectContext: context)
         n.date = NSDate()
         return n
     }

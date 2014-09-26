@@ -46,15 +46,15 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
             NSFontAttributeName: UIFont(name: "HelveticaNeue-Light", size: 17)
         ]
         UIBarButtonItem.appearance().setTitleTextAttributes(barTextDict, forState: UIControlState.Normal)
-        self.navigationController.navigationBar.titleTextAttributes = titleDict
-        self.navigationController.navigationBar.barTintColor = navBarColor
-        self.navigationController.navigationBar.translucent = true
+        self.navigationController?.navigationBar.titleTextAttributes = titleDict
+        self.navigationController?.navigationBar.barTintColor = navBarColor
+        self.navigationController?.navigationBar.translucent = true
     }
     
     func setupMenuView() {
         self.revealButtonItem.target = self.revealViewController()
         self.revealButtonItem.action = "revealToggle:"
-        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     @IBAction func addContact(sender: AnyObject) {
@@ -87,20 +87,20 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
         super.didReceiveMemoryWarning()
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         println("whhy is this nil? \(tablePresenter)")
         return tablePresenter.totalCells()
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return tablePresenter.heightsCache[indexPath.row]
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return tablePresenter.cellCache[indexPath.row]
     }
     
@@ -169,7 +169,7 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
         tablePresenter.displayBusiness()
     }
     
-    override func touchesBegan(touches: NSSet!, withEvent event: UIEvent!) {
+    override func touchesBegan(touches: NSSet,withEvent event: UIEvent) {
         for view in self.view.subviews {
             if view is UITextField && view.isFirstResponder() {
                 view.resignFirstResponder()
@@ -179,7 +179,7 @@ class ProspectTableViewController: UITableViewController, UITextFieldDelegate, P
         self.view.endEditing(true)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         //tablePresenter.prepareBusinessForSegue()
         
     }

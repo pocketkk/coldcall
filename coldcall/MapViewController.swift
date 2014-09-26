@@ -17,7 +17,7 @@ class MapViewController: UIViewController {
         super.viewDidLoad()
         self.revealButtonItem.target = self.revealViewController()
         self.revealButtonItem.action = "revealToggle:"
-        self.navigationController.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
+        self.navigationController?.navigationBar.addGestureRecognizer(self.revealViewController().panGestureRecognizer())
     }
     
     func viewDidAppear() {

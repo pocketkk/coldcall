@@ -21,7 +21,7 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
         if sender.isKindOfClass(UITableViewCell)
         {
         }
@@ -51,11 +51,11 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
         tableView.reloadData()
     }
 
-    override func numberOfSectionsInTableView(tableView: UITableView!) -> Int {
+    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
-    override func tableView(tableView: UITableView!, heightForRowAtIndexPath indexPath: NSIndexPath!) -> CGFloat {
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         println(indexPath.row)
         var rowHeight : CGFloat = 0
         if indexPath.row == 0 {
@@ -66,11 +66,11 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
         return rowHeight
     }
 
-    override func tableView(tableView: UITableView!, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 6
     }
     
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cellIdentifiers = ["title", "coldcalls", "prospects", "contacts", "map", "settings"]
         var cellIdentifier = "Cell"
         cellIdentifier = cellIdentifiers[indexPath.row]
@@ -98,7 +98,7 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
             cell?.addSubview(imageView)
             cell?.addSubview(nameLabel)
         }
-        return cell
+        return cell!
     }
 
 }

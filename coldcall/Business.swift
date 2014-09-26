@@ -20,7 +20,7 @@ class Business: NSManagedObject {
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         let ent = NSEntityDescription.entityForName("Businesses", inManagedObjectContext: context)
-        return Business(entity: ent, insertIntoManagedObjectContext: context)
+        return Business(entity: ent!, insertIntoManagedObjectContext: context)
     }
     
     class func isUnique(business: Business) -> Bool {
@@ -30,7 +30,7 @@ class Business: NSManagedObject {
         let street = business.street
 
         request.predicate = NSPredicate(format: "name contains [c] %@ && street contains [c] %@", name!, street!)
-        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)
+        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)!
         return businesses.count == 0
  
     }

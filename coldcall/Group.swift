@@ -11,7 +11,7 @@ class Group: NSManagedObject {
         let appDel: AppDelegate = (UIApplication.sharedApplication().delegate as AppDelegate)
         let context = appDel.cdh.managedObjectContext
         let ent = NSEntityDescription.entityForName("Groups", inManagedObjectContext: context)
-        return Group(entity: ent, insertIntoManagedObjectContext: context)
+        return Group(entity: ent!, insertIntoManagedObjectContext: context)
     }
     
     func addUsers(usersArray: NSArray) -> Bool {

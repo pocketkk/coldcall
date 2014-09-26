@@ -29,19 +29,19 @@ class ProspectSearchController: NSObject {
     
     func searchForProspect(name: String, address: String) -> [AnyObject] {
         request.predicate = NSPredicate(format: "name contains [c] %@ && street contains [c] %@", name, address)
-        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)
+        var businesses : [AnyObject] = context.executeFetchRequest(request, error: nil)!
         return businesses
     }
     
     func loadProspect(searchTerm: String, controller: UIViewController) {
         request.returnsObjectsAsFaults = false
         request.predicate = NSPredicate(format: "name contains [c] %@", searchTerm)
-        var businesses:Array = context.executeFetchRequest(request, error: nil)
+        var businesses:Array = context.executeFetchRequest(request, error: nil)!
         chooseBusiness(businesses as [Business], controller: controller)
     }
     
     func addBusinessToActionSheet(sheet: UIAlertController, business: Business) {
-        sheet.addAction(UIAlertAction(title: business.name, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!) in
+        sheet.addAction(UIAlertAction(title: business.name!, style: UIAlertActionStyle.Default, handler: { (ACTION :UIAlertAction!) in
             println("selected \(business.name)")
             self.delegate?.didFindBusinessFromSearch(business)
         }))
