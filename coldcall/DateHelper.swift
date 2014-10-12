@@ -22,20 +22,20 @@ class Date {
     
     class func beginningOfDay(date:NSDate) ->NSDate {
         let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
-        var dateFormat = NSDateFormatter()
-        dateFormat.timeZone = NSTimeZone.defaultTimeZone()
+        let components        = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+        var dateFormat        = NSDateFormatter()
+        dateFormat.timeZone   = NSTimeZone.defaultTimeZone()
         dateFormat.dateFormat = "yyyy-MM-dd"
-        let dateStr = dateFormat.stringFromDate(date)
+        let dateStr           = dateFormat.stringFromDate(date)
         return dateFormat.dateFromString(dateStr)!
     }
     
     class func endOfDay(date:NSDate) -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let components = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
-        components.hour=23
-        components.minute=59
-        let endofDate = calendar .dateFromComponents(components)
+        let calendar      = NSCalendar.currentCalendar()
+        let components    = calendar.components(.CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond, fromDate: date)
+        components.hour   = 23
+        components.minute = 59
+        let endofDate     = calendar .dateFromComponents(components)
         return endofDate!
     }
     

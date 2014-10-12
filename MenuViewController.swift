@@ -80,21 +80,21 @@ class MenuViewController: UITableViewController, UserSessionControllerDelegate {
             for sub in cell!.subviews {
                 sub.removeFromSuperview()
             }
-            let userSession = UserSessionController.sharedInstance
-            var imageView = UIImageView(frame: CGRectMake(12,1,20,30))
-            imageView.image = userSession.getUserImage()
+            let userSession              = UserSessionController.sharedInstance
+            var imageView                = UIImageView(frame: CGRectMake(12,1,20,30))
+            imageView.image              = userSession.getUserImage()
             imageView.sizeToFit()
             imageView.layer.cornerRadius = imageView.frame.size.width / 2
-            imageView.clipsToBounds = true
-            imageView.center.y = (65.0 / 2)
-            imageView.layer.borderWidth = 3.0
-            imageView.layer.borderColor = UIColor.darkGrayColor().CGColor
+            imageView.clipsToBounds      = true
+            imageView.center.y           = (65.0 / 2)
+            imageView.layer.borderWidth  = 3.0
+            imageView.layer.borderColor  = UIColor.darkGrayColor().CGColor
 
-            var nameLabel = UILabel(frame: CGRectMake(72,12,200,20))
-            nameLabel.text = userSession.userName().uppercaseString
-            nameLabel.textColor = UIColor.darkGrayColor()
-            nameLabel.font = UIFont(name: "HelveticaNeue-Thin", size: 20)
-            nameLabel.center.y = imageView.center.y
+            var nameLabel                = UILabel(frame: CGRectMake(72,12,200,20))
+            nameLabel.text               = userSession.userName().uppercaseString
+            nameLabel.textColor          = UIColor.darkGrayColor()
+            nameLabel.font               = UIFont(name: "HelveticaNeue-Thin", size: 20)
+            nameLabel.center.y           = imageView.center.y
             cell?.addSubview(imageView)
             cell?.addSubview(nameLabel)
         }
